@@ -1,0 +1,20 @@
+<section class="hero-section atrium-home-hero relative grid content-end pt-24 pb-5 md:py-20 lg:py-28">
+  <div class="atrium-home-hero-media">
+    {{ if hero_image }}
+      {{ hero_image }}
+      <img src="{{ url }}" alt="{{ alt ?? heading }}">
+      {{ /hero_image }}
+    {{ else }}
+      <img src="/assets/images/hero-bg-img.jpg" alt="{{ heading }}">
+    {{ /if }}
+  </div>
+  <div class="hero-content-slider relative z-1">
+    <div class="container text-center">
+      <h1 class="text-white">{{ heading }}</h1>
+      {{ if subheading }}<p class="mb-6 md:mb-9 text-white text-md md:text-2xl md:leading-2xl">{{ subheading }}</p>{{ /if }}
+      {{ if show_search }}
+      {{ partial:tour-search-form hero="true" }}
+      {{ /if }}
+    </div>
+  </div>
+</section>

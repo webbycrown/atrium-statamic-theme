@@ -1,0 +1,60 @@
+<script>
+(function () {
+  function bootGallery() {
+    var grid = document.querySelector('[data-gallery-grid]');
+    if (!grid || grid.getAttribute('data-gallery-ready') === '1') return;
+    grid.setAttribute('data-gallery-ready', '1');
+
+    var items = Array.prototype.slice.call(grid.querySelectorAll('[data-gallery-item]'));
+    var status = document.querySelector('[data-gallery-status]');
+    var pageSize = 9;
+    var shown = items.filter(function (el) {
+      return !el.classList.contains('atrium-gallery-hide') && !el.classList.contains('hidden');
+    }).length;
+
+    function setLabel() {
+      if (!status) return;
+      if (shown >= items.length) {
+        status.textContent = 'All photos loaded';
+        status.setAttribute('disabled', 'disabled');
+        status.classList.add('opacity-60');
+      } else {
+        status.textContent = 'Load more';
+        status.removeAttribute('disabled');
+        status.classList.remove('opacity-60');
+      }
+    }
+
+    function reveal() {
+      if (shown >= items.length) {
+        setLabel();
+        return 0;
+      }
+      var next = items.slice(shown, shown + pageSize);
+      next.forEach(function (el) {
+        el.classList.remove('atrium-gallery-hide');
+        el.classList.remove('hidden');
+      });
+      shown += next.length;
+      setLabel();
+      return next.length;
+    }
+
+    if (status) {
+      status.addEventListener('click', function (e) {
+        e.preventDefault();
+        reveal();
+      });
+    }
+
+    setLabel();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootGallery);
+  } else {
+    bootGallery();
+  }
+  window.addEventListener('load', bootGallery);
+})();
+</script>

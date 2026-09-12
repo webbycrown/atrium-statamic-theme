@@ -1,0 +1,13 @@
+<a href="{{ url }}" class="atrium-city-row group">
+  <div class="atrium-city-row-media">
+    <img src="{{ if image }}{{ image:url }}{{ else }}/assets/images/event-venue-20.jpg{{ /if }}" alt="{{ title }}">
+  </div>
+  <div class="atrium-city-row-body">
+    <span class="atrium-city-count">{{ events_count ?? 4 }} Events</span>
+    <h3>{{ title }}</h3>
+    {{ if description }}
+    <p>{{ description | strip_tags | truncate:140 }}</p>
+    {{ /if }}
+    <span class="atrium-city-link">View halls <i class="fa-regular fa-arrow-right"></i></span>
+  </div>
+</a>

@@ -1,0 +1,31 @@
+<section class="perfect-travel-section py-10 md:py-20 lg:py-28 relative">
+  <div class="container">
+    <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-5">
+      <div class="text-center md:text-left">
+        <h2>{{ heading }}</h2>
+        {{ if description }}<p>{{ description }}</p>{{ /if }}
+        <p class="text-sm mb-0"><span class="text-primary-900">{{ happy_customers ?? '+500' }}</span> planners hosted</p>
+      </div>
+      <div class="relative">
+        <div class="overflow-hidden relative rounded-full mx-auto md:mx-0 max-w-[310px] before:pt-[140%] before:block">
+          {{ planner_image }}<img src="{{ url }}" alt="" class="w-full h-full object-cover absolute top-0 left-0">{{ /planner_image }}
+        </div>
+      </div>
+      <div class="text-center md:text-left">
+        <h5 class="text-xl mb-5 font-bold">{{ side_heading }}</h5>
+        {{ if side_description }}<p class="mb-8">{{ side_description }}</p>{{ /if }}
+        <div class="grid grid-cols-0 sm:grid-cols-3 gap-2 lg:gap-5">
+          {{ stats }}
+          <div>
+            <h4 class="text-primary-900 mb-0">{{ value }}</h4>
+            <p class="text-sm leading-xl font-medium">{{ label }}</p>
+          </div>
+          {{ /stats }}
+        </div>
+        {{ if button_text }}
+        <a href="{{ button_url ?? '/events' }}" class="btn btn-primary mx-auto md:mx-0">{{ button_text }} <i class="fa-regular fa-arrow-right ml-3"></i></a>
+        {{ /if }}
+      </div>
+    </div>
+  </div>
+</section>

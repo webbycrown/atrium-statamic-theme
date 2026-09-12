@@ -1,0 +1,44 @@
+title: 'Why Choose Us'
+fields:
+  -
+    handle: heading
+    field: { type: text, display: Heading }
+  -
+    handle: description
+    field: { type: textarea, display: Description }
+  -
+    handle: features
+    field:
+      type: grid
+      display: Features
+      fields:
+        -
+          handle: title
+          field: { type: text, display: Title }
+        -
+          handle: text
+          field: { type: textarea, display: Text }
+        -
+          handle: icon
+          field: { type: assets, container: assets, max_files: 1, display: Icon }
+  -
+    handle: deals
+    field:
+      type: grid
+      display: Deals
+      fields:
+        -
+          handle: title
+          field: { type: text, display: Title }
+        -
+          handle: text
+          field: { type: text, display: Text }
+        -
+          handle: image
+          field: { type: assets, container: assets, max_files: 1, display: Image }
+        -
+          handle: button_text
+          field: { type: text, display: 'Button Text' }
+        -
+          handle: button_url
+          field: { type: text, display: 'Button URL' }

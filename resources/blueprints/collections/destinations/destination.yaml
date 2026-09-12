@@ -1,0 +1,74 @@
+title: City
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field: { type: text, required: true }
+          -
+            handle: image
+            field: { type: assets, container: assets, max_files: 1, display: Image }
+          -
+            handle: description
+            field: { type: markdown, display: Description }
+          -
+            handle: highlight_heading
+            field: { type: text, display: 'Highlight heading' }
+          -
+            handle: highlight_text
+            field: { type: markdown, display: 'Highlight text' }
+          -
+            handle: activities
+            field: { type: markdown, display: Activities }
+          -
+            handle: flights
+            field:
+              type: grid
+              display: Flights
+              fields:
+                -
+                  handle: route_name
+                  field: { type: text, display: 'Route name' }
+                -
+                  handle: flight_name
+                  field: { type: text, display: 'Flight name' }
+                -
+                  handle: distance
+                  field: { type: text, display: Distance }
+                -
+                  handle: depart_date
+                  field: { type: text, display: 'Depart date' }
+                -
+                  handle: return_date
+                  field: { type: text, display: 'Return date' }
+          -
+            handle: closing_text
+            field: { type: markdown, display: 'Closing text' }
+          -
+            handle: events_count
+            field: { type: integer, display: 'Events count' }
+          -
+            handle: related_tours
+            field:
+              type: entries
+              collections:
+                - tours
+              display: 'Related Events'
+          -
+            handle: related_hotels
+            field:
+              type: entries
+              collections:
+                - hotels
+              display: 'Related Venues'
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field: { type: slug }

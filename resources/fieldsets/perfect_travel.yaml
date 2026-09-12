@@ -1,0 +1,38 @@
+title: 'Right hall'
+fields:
+  -
+    handle: heading
+    field: { type: text, display: Heading }
+  -
+    handle: description
+    field: { type: textarea, display: Description }
+  -
+    handle: happy_customers
+    field: { type: text, display: 'Planners hosted' }
+  -
+    handle: planner_image
+    field: { type: assets, container: assets, max_files: 1, display: Image }
+  -
+    handle: side_heading
+    field: { type: text, display: 'Side Heading' }
+  -
+    handle: side_description
+    field: { type: textarea, display: 'Side Description' }
+  -
+    handle: button_text
+    field: { type: text, display: 'Button Text' }
+  -
+    handle: button_url
+    field: { type: text, display: 'Button URL' }
+  -
+    handle: stats
+    field:
+      type: grid
+      display: Stats
+      fields:
+        -
+          handle: value
+          field: { type: text, display: Value }
+        -
+          handle: label
+          field: { type: text, display: Label }

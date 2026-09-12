@@ -1,0 +1,84 @@
+{{ partial:inner-banner banner_title="About" }}
+<section>
+  <div class="container">
+    <div class="text-center mb-8 md:mb-14">
+      <h2>We place events in the right hall</h2>
+      <p class="max-w-[590px] mx-auto">Ballrooms, conference floors, and banquet rooms matched to the brief — guest count, date, and how the night should feel.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="bg-white pt-8 pb-6 px-3 text-center shadow-card-1 rounded-xl h-full">
+        <img src="/assets/images/destinations-icon1.svg" alt="" class="mx-auto mb-6">
+        <h2 class="text-[25px] md:text-4xl mb-2">678</h2>
+        <p class="text-primary-900 mb-0">Cities</p>
+      </div>
+      <div class="bg-white pt-8 pb-6 px-3 text-center shadow-card-1 rounded-xl h-full">
+        <img src="/assets/images/destinations-icon2.svg" alt="" class="mx-auto mb-6">
+        <h2 class="text-[25px] md:text-4xl mb-2">2547</h2>
+        <p class="text-primary-900 mb-0">Event packages</p>
+      </div>
+      <div class="bg-white pt-8 pb-6 px-3 text-center shadow-card-1 rounded-xl h-full">
+        <img src="/assets/images/destinations-icon3.svg" alt="" class="mx-auto mb-6">
+        <h2 class="text-[25px] md:text-4xl mb-2">98</h2>
+        <p class="text-primary-900 mb-0">Event types</p>
+      </div>
+      <div class="bg-white pt-8 pb-6 px-3 text-center shadow-card-1 rounded-xl h-full">
+        <img src="/assets/images/destinations-icon4.svg" alt="" class="mx-auto mb-6">
+        <h2 class="text-[25px] md:text-4xl mb-2">12,567</h2>
+        <p class="text-primary-900 mb-0">Guests hosted</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="py-12 about-section2">
+  <div class="container">
+    <div class="flex flex-wrap items-center -mx-4">
+      <div class="w-full md:w-1/2 px-4">
+        <img src="/assets/images/get-about-us-img.svg" alt="">
+      </div>
+      <div class="w-full md:w-1/2 px-4">
+        <h4 class="text-md uppercase font-bold text-primary-900 mb-2">About Atrium</h4>
+        <h2>We create the events you love</h2>
+        <p>Start with the room. We walk halls with you, confirm catering and load-in, then keep a floor lead on site from the first crate to the last taxi.</p>
+        <ul class="ul-list border-b border-primary-800 mb-8">
+          <li>
+            <h6 class="text-lg mb-0 text-black">20 years placing events</h6>
+            <p class="text-md">Galas, summits, weddings, and board dinners in halls we already know.</p>
+          </li>
+          <li>
+            <h6 class="text-lg mb-0 text-black">Venue specialists</h6>
+            <p class="text-md">Floor plans, holds, and vendor access handled by people who work the night, not a call centre.</p>
+          </li>
+        </ul>
+        <a href="/events" class="btn btn-primary">Discover more</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="px-5 md:px-12 py-5 md:py-9 bg-primary-400 rounded-2xl xl:-mx-12">
+      <div class="text-left mb-8 md:mb-14">
+        <h2>Popular Events</h2>
+        <p class="max-w-[590px]">Open dates for receptions, conferences, and awards nights — priced from the hall.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {{ collection:tours limit="3" }}
+          {{ partial:cards/tour }}
+        {{ /collection:tours }}
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="text-center mb-8 md:mb-14">
+      <h2>Our Team</h2>
+      <p class="max-w-[590px] mx-auto">Planners, floor leads, and venue managers who stay on the brief from hold to strike.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+      {{ collection:teams limit="6" }}
+        {{ partial:cards/team }}
+      {{ /collection:teams }}
+    </div>
+  </div>
+</section>

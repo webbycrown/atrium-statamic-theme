@@ -1,0 +1,92 @@
+title: Event
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field: { type: text, required: true }
+          -
+            handle: image
+            field: { type: assets, container: assets, max_files: 1, display: Image }
+          -
+            handle: excerpt
+            field: { type: textarea, display: Excerpt }
+          -
+            handle: location
+            field: { type: text, display: Location }
+          -
+            handle: duration
+            field: { type: text, display: Event type }
+          -
+            handle: group_size
+            field: { type: text, display: 'Group Size' }
+          -
+            handle: price
+            field: { type: text, display: Price }
+          -
+            handle: compare_price
+            field: { type: text, display: 'Compare Price' }
+          -
+            handle: rating
+            field: { type: text, display: Rating }
+          -
+            handle: reviews_count
+            field: { type: text, display: 'Reviews Count' }
+          -
+            handle: overview
+            field: { type: markdown, display: Overview }
+          -
+            handle: included
+            field:
+              type: grid
+              display: Included
+              fields:
+                -
+                  handle: text
+                  field: { type: text, display: Text }
+          -
+            handle: itinerary
+            field:
+              type: grid
+              display: Itinerary
+              fields:
+                -
+                  handle: day
+                  field: { type: text, display: Day }
+                -
+                  handle: title
+                  field: { type: text, display: Title }
+                -
+                  handle: text
+                  field: { type: textarea, display: Text }
+          -
+            handle: destination
+            field:
+              type: entries
+              collections:
+                - destinations
+              max_items: 1
+              display: Destination
+          -
+            handle: tour_type
+            field:
+              type: terms
+              taxonomies:
+                - tour_type
+              display: 'Tour Type'
+          -
+            handle: template
+            field:
+              type: template
+              display: Template
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field: { type: slug }

@@ -1,0 +1,26 @@
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/swiper-bundle.min.js"></script>
+<script src="/assets/js/isotope.pkgd.js"></script>
+<script src="/assets/js/aos.js"></script>
+<script src="/assets/js/jquery.magnific-popup.min.js"></script>
+<script src="/assets/js/alpine.min.js"></script>
+<script src="/assets/js/custom.js?v={{ now format='YmdHis' }}"></script>
+<script>
+(function () {
+  function themeReveal() {
+    if (!document.body || document.body.classList.contains('is-ready')) return;
+    document.body.classList.add('is-ready');
+    var pre = document.querySelector('.preloader');
+    if (pre) {
+      pre.style.opacity = '0';
+      pre.style.pointerEvents = 'none';
+      setTimeout(function () { pre.style.display = 'none'; }, 250);
+    }
+    document.dispatchEvent(new Event('atrium:ready'));
+    window.dispatchEvent(new Event('resize'));
+  }
+  if (document.readyState === 'complete') themeReveal();
+  else window.addEventListener('load', themeReveal);
+  setTimeout(themeReveal, 2000);
+})();
+</script>

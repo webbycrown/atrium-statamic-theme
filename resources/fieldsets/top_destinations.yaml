@@ -1,0 +1,14 @@
+title: 'Top Cities'
+fields:
+  -
+    handle: heading
+    field: { type: text, display: Heading }
+  -
+    handle: description
+    field: { type: textarea, display: Description }
+  -
+    handle: button_text
+    field: { type: text, display: 'Button Text' }
+  -
+    handle: button_url
+    field: { type: text, display: 'Button URL' }

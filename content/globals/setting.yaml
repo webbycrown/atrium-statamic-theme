@@ -1,0 +1,8 @@
+title: Setting
+data:
+  favicon: images/favicon.png
+  logo: images/main-logo-black.svg
+  white_logo: images/main-logo-white.svg
+  header_select: header
+  footer_select: footer
+  phone: '+1 312 555 0148'

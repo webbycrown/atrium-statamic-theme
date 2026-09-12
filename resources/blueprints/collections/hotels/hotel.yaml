@@ -1,0 +1,63 @@
+title: Hotel
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field: { type: text, required: true }
+          -
+            handle: image
+            field: { type: assets, container: assets, max_files: 1, display: Image }
+          -
+            handle: gallery
+            field: { type: assets, container: assets, display: Gallery }
+          -
+            handle: excerpt
+            field: { type: textarea, display: Excerpt }
+          -
+            handle: address
+            field: { type: text, display: Address }
+          -
+            handle: price
+            field: { type: text, display: Price }
+          -
+            handle: reviews_count
+            field: { type: text, display: 'Reviews Count' }
+          -
+            handle: overview
+            field: { type: markdown, display: Overview }
+          -
+            handle: facilities
+            field:
+              type: grid
+              display: Facilities
+              fields:
+                -
+                  handle: text
+                  field: { type: text }
+                -
+                  handle: icon
+                  field: { type: text, display: Icon }
+          -
+            handle: rooms
+            field:
+              type: grid
+              display: Rooms
+              fields:
+                -
+                  handle: name
+                  field: { type: text }
+                -
+                  handle: price
+                  field: { type: text }
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field: { type: slug }

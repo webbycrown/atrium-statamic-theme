@@ -1,0 +1,32 @@
+title: Portfolio
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field: { type: text, required: true }
+          -
+            handle: subtitle
+            field: { type: text, display: Subtitle }
+          -
+            handle: image
+            field: { type: assets, container: assets, max_files: 1, display: Image }
+          -
+            handle: portfolio_category
+            field:
+              type: terms
+              taxonomies:
+                - portfolio_category
+              max_items: 1
+              display: Category
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field: { type: slug }

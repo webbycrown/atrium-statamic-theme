@@ -1,0 +1,4 @@
+title: Teams
+template: teams/show
+route: '/team/{slug}'
+revisions: false

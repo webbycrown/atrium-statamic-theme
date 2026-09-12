@@ -1,0 +1,27 @@
+<div class="group relative">
+  <div class="tour-card-media w-full overflow-hidden rounded-2xl relative group-hover:opacity-75">
+    <a href="{{ url }}" class="absolute top-0 left-0 h-full w-full">
+      <img src="{{ if image }}{{ image:url }}{{ else }}/assets/images/popular-tours-img1.jpg{{ /if }}" alt="{{ title }}" class="absolute top-0 left-0 h-full w-full object-cover object-center">
+    </a>
+  </div>
+  <div class="mt-5">
+    <h3 class="text-1xl text-dark-700 leading-2xl mb-5 group-hover:text-primary-900">
+      <a href="{{ url }}">{{ title }}</a>
+    </h3>
+    <div class="mt-4 flex justify-between">
+      <div>
+        <p class="text-md font-medium text-black mb-2 leading-md">{{ duration }}</p>
+        <p class="text-[12px] flex items-center gap-2 text-dark-800 m-0 leading-md">
+          <span class="flex items-center gap-1 text-[#FFC738]">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </span>
+          ({{ reviews_count ?? 1 }} Review)
+        </p>
+      </div>
+      <div class="text-right">
+        {{ if compare_price }}<span class="text-[12px] font-semibold text-primary-900 line-through block">${{ compare_price | format_number:0 }}</span>{{ /if }}
+        {{ if price }}<span class="text-md font-bold text-dark-900 block">${{ price | format_number:0 }}</span>{{ /if }}
+      </div>
+    </div>
+  </div>
+</div>

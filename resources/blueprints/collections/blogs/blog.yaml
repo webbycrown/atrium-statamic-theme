@@ -1,0 +1,39 @@
+title: Blog
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field: { type: text, required: true }
+          -
+            handle: image
+            field: { type: assets, container: assets, max_files: 1, display: Image }
+          -
+            handle: excerpt
+            field: { type: textarea, display: Excerpt }
+          -
+            handle: content
+            field: { type: markdown, display: Content }
+          -
+            handle: blog_category
+            field:
+              type: terms
+              taxonomies:
+                - blog_category
+              display: Category
+          -
+            handle: template
+            field:
+              type: template
+              display: Template
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field: { type: slug }

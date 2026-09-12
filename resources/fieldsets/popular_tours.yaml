@@ -1,0 +1,8 @@
+title: 'Popular Events'
+fields:
+  -
+    handle: heading
+    field: { type: text, display: Heading }
+  -
+    handle: description
+    field: { type: textarea, display: Description }

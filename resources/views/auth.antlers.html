@@ -1,0 +1,93 @@
+<section class="pt-24 md:pt-32 pb-12 md:pb-24 bg-gray-200 mb-14 md:mb-20">
+  <div class="container">
+    <div class="max-w-[590px] mx-auto px-3 sm:px-6 md:px-8 pb-7 md:pb-9 bg-primary-400 rounded-4xl">
+      <div class="shadow-form-box px-4 sm:px-6 md:px-8 py-7 md:py-9 bg-white rounded-4xl -mt-7 md:-mt-9 inline-block w-full">
+        {{ if logged_in && (segment_1 == 'login' || segment_1 == 'register') }}
+        <h1 class="text-xl mb-2">You are signed in</h1>
+        <p class="text-dark-800 md:mb-7">
+          {{ user }}
+          Signed in as {{ first_name ?? name ?? email }}.
+          {{ /user }}
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="/booking/dashboard" class="btn btn-primary">Go to dashboard</a>
+          <a href="{{ user:logout_url redirect='/login' }}" class="btn btn-outline">Log out</a>
+        </div>
+        {{ elseif segment_1 == 'login' }}
+        <h1 class="text-xl mb-2">Welcome back</h1>
+        <p class="text-dark-800 md:mb-10">Don't have an account yet? <a href="/register" class="text-primary-900 underline hover:text-black hover:no-underline">Sign up for free</a></p>
+        {{ user:login_form redirect="/booking/dashboard" error_redirect="/login" class="form" }}
+          {{ if errors }}
+          <ul class="mb-5 text-sm text-primary-900">
+            {{ errors }}<li>{{ value }}</li>{{ /errors }}
+          </ul>
+          {{ /if }}
+          <div class="mb-3 sm:mb-5"><input type="email" name="email" value="{{ old:email }}" placeholder="Email address" class="form-control" required></div>
+          <div class="mb-3 sm:mb-5"><input type="password" name="password" placeholder="Password" class="form-control" required></div>
+          <div class="mb-3 sm:mb-5"><p class="text-dark-800"><a href="/forgot-password" class="text-primary-900 underline hover:text-black hover:no-underline">Forgot your password?</a></p></div>
+          <div><button type="submit" class="btn btn-primary">Sign in</button></div>
+        {{ /user:login_form }}
+        {{ elseif segment_1 == 'register' }}
+        <h1 class="text-xl mb-2">Sign in or create an account</h1>
+        <p class="text-dark-800 md:mb-10">Already have an account? <a href="/login" class="text-primary-900 underline hover:text-black hover:no-underline">Log in</a></p>
+        {{ user:register_form redirect="/booking/dashboard" error_redirect="/register" class="form" }}
+          {{ if errors }}
+          <ul class="mb-5 text-sm text-primary-900">
+            {{ errors }}<li>{{ value }}</li>{{ /errors }}
+          </ul>
+          {{ /if }}
+          <div class="mb-3 sm:mb-5"><input type="text" name="first_name" value="{{ old:first_name }}" placeholder="First name" class="form-control" required></div>
+          <div class="mb-3 sm:mb-5"><input type="text" name="last_name" value="{{ old:last_name }}" placeholder="Last name" class="form-control" required></div>
+          <div class="mb-3 sm:mb-5"><input type="email" name="email" value="{{ old:email }}" placeholder="Email address" class="form-control" required></div>
+          <div class="mb-3 sm:mb-5"><input type="password" name="password" placeholder="Password" class="form-control" required></div>
+          <div class="mb-3 sm:mb-5"><input type="password" name="password_confirmation" placeholder="Confirm password" class="form-control" required></div>
+          <div class="mb-3 sm:mb-5">
+            <label class="checkcontainer">By signing in, I agree to Atrium Terms of Use and Privacy Policy.
+              <input type="checkbox" name="terms" value="1" required><span class="checkmark"></span>
+            </label>
+          </div>
+          <div><button type="submit" class="btn btn-primary">Sign up</button></div>
+        {{ /user:register_form }}
+        {{ elseif segment_1 == 'forgot-password' }}
+        <h1 class="text-xl mb-2">Forgot password</h1>
+        <p class="text-dark-800 md:mb-7">Lost your password? Please enter your email address. You will receive a link to create a new password via email.</p>
+        {{ user:forgot_password_form reset_url="/reset-password" redirect="/forgot-password" class="form" }}
+          {{ if success }}
+          <p class="mb-5 text-primary-900">If that email is on file, a reset link has been sent.</p>
+          {{ /if }}
+          {{ if errors }}
+          <ul class="mb-5 text-sm text-primary-900">
+            {{ errors }}<li>{{ value }}</li>{{ /errors }}
+          </ul>
+          {{ /if }}
+          <div class="mb-3 sm:mb-5"><input type="email" name="email" value="{{ old:email }}" placeholder="Email address" class="form-control" required></div>
+          <div><button type="submit" class="btn btn-primary">Reset password</button></div>
+        {{ /user:forgot_password_form }}
+        <p class="mt-5 text-dark-800"><a href="/login" class="text-primary-900 underline hover:text-black hover:no-underline">Back to login</a></p>
+        {{ else }}
+        <h1 class="text-xl mb-2">Reset password</h1>
+        {{ if get:token }}
+        <p class="text-dark-800 md:mb-7">Choose a new password for your account.</p>
+        {{ user:reset_password_form redirect="/login" class="form" }}
+          {{ if success }}
+          <p class="mb-5 text-primary-900">Your password has been reset. You can sign in now.</p>
+          {{ /if }}
+          {{ if errors }}
+          <ul class="mb-5 text-sm text-primary-900">
+            {{ errors }}<li>{{ value }}</li>{{ /errors }}
+          </ul>
+          {{ /if }}
+          <div class="mb-3 sm:mb-5"><input type="email" name="email" value="{{ old:email }}" placeholder="Email address" class="form-control" required></div>
+          <div class="mb-3 sm:mb-5"><input type="password" name="password" placeholder="New password" class="form-control" required></div>
+          <div class="mb-3 sm:mb-5"><input type="password" name="password_confirmation" placeholder="Confirm password" class="form-control" required></div>
+          <div><button type="submit" class="btn btn-primary">Reset password</button></div>
+        {{ /user:reset_password_form }}
+        {{ else }}
+        <p class="text-dark-800 md:mb-7">This reset link is missing or expired. Request a new one from the forgot password page.</p>
+        <a href="/forgot-password" class="btn btn-primary">Forgot password</a>
+        {{ /if }}
+        {{ /if }}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,30 @@
+{{ partial:inner-banner banner_title="Testimonial" }}
+<section>
+  <div class="container">
+    <div class="text-center mb-10">
+      <h2>What planners say about Atrium</h2>
+      <p>From board dinners to awards nights — the hall, the hold, and the floor team held up.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-7">
+      {{ collection:testimonials }}
+      <div class="shadow-card-3 p-5 bg-white rounded-4xl grid content-between">
+        <div>
+          <div class="flex items-center space-x-1 text-yellow-900 mb-5">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-dark-900 text-md mb-3">{{ quote }}</p>
+        </div>
+        <div class="flex border-t border-gray-100 pt-3">
+          <figcaption class="flex justify-center items-center space-x-3">
+            {{ photo }}<img class="w-10 h-10 rounded-full shrink-0" src="{{ url }}" alt="{{ title }}">{{ /photo }}
+            <div class="space-y-0.5 font-medium text-left">
+              <div class="text-dark-900 text-sm font-bold leading-normal">{{ title }}</div>
+              {{ if location }}<div class="text-10 font-light text-dark-800 leading-normal">{{ location }}</div>{{ /if }}
+            </div>
+          </figcaption>
+        </div>
+      </div>
+      {{ /collection:testimonials }}
+    </div>
+  </div>
+</section>

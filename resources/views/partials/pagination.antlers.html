@@ -1,0 +1,17 @@
+{{ paginate }}
+{{ if total_pages > 1 }}
+<div class="mt-12 pt-6 md:pt-10 border-t border-primary-400">
+  <nav class="isolate flex {{ if centered }}justify-center {{ /if }}gap-2 text-md font-bold" aria-label="Pagination">
+    {{ if prev_page }}
+    <a href="{{ prev_page }}" class="w-10 h-10 border border-primary-900 rounded-full flex items-center justify-center text-dark-900 hover:bg-primary-900 hover:text-white" aria-label="Previous page">&lsaquo;</a>
+    {{ /if }}
+    {{ links:all }}
+    <a href="{{ url }}" class="w-10 h-10 border border-primary-900 rounded-full flex items-center justify-center {{ if page == current_page }}bg-primary-900 text-white{{ else }}text-dark-900 hover:bg-primary-900 hover:text-white{{ /if }}">{{ page }}</a>
+    {{ /links:all }}
+    {{ if next_page }}
+    <a href="{{ next_page }}" class="w-10 h-10 border border-primary-900 rounded-full flex items-center justify-center text-dark-900 hover:bg-primary-900 hover:text-white" aria-label="Next page">&rsaquo;</a>
+    {{ /if }}
+  </nav>
+</div>
+{{ /if }}
+{{ /paginate }}

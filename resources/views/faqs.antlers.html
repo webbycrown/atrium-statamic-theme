@@ -1,0 +1,28 @@
+{{ partial:inner-banner banner_title="FAQ’s" }}
+<section>
+  <div class="container">
+    <div class="md:flex md:-mx-3 lg:-mx-5">
+      <div class="w-full md:max-w-[300px] lg:max-w-[340px] shrink-0 md:px-3 lg:px-5">
+        <h2>Find an answer</h2>
+        <p>Holds, deposits, catering, and what happens if the date moves. If it is not here, write us with the guest count and city.</p>
+      </div>
+      <div class="w-full md:px-3 lg:px-5">
+        {{ taxonomy:faq_category }}
+        <div class="mb-10" x-data="{selected:0}">
+          <h3 class="text-2xl md:text-25 mb-5 md:mb-7 leading-normal font-bold">{{ title }}</h3>
+          {{ collection:faqs :taxonomy:faq_category="slug" }}
+          <div class="faqs-list mb-5" :class="[ selected == '{{ index }}' ? 'active' : '' ]">
+            <h3 class="faqs-title border border-primary-800 flex items-center m-0 bg-gray-400 rounded-[4px] py-3 px-3 text-dark-900 text-md leading-normal md:text-lg font-semibold" @click="selected !== {{ index }} ? selected = {{ index }} : selected = null">
+              <i class="fa-sharp fa-solid fa-circle-question mr-3 shrink-0 text-primary-900"></i> {{ title }}
+            </h3>
+            <div class="faqs-content overflow-hidden transition-all max-h-0 duration-700 pl-10" x-show="selected == {{ index }}" x-collapse>
+              <p class="text-md mt-3.5 m-0">{{ answer }}</p>
+            </div>
+          </div>
+          {{ /collection:faqs }}
+        </div>
+        {{ /taxonomy:faq_category }}
+      </div>
+    </div>
+  </div>
+</section>

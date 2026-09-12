@@ -1,0 +1,57 @@
+title: 'All Page Builder'
+fields:
+  -
+    handle: page_builder
+    field:
+      collapse: true
+      type: replicator
+      display: 'Page Builder'
+      sets:
+        home:
+          display: Home
+          sets:
+            hero_section:
+              display: 'Hero Section'
+              fields:
+                -
+                  import: hero_section
+            top_destinations:
+              display: 'Top Cities'
+              fields:
+                -
+                  import: top_destinations
+            about_section:
+              display: 'About Section'
+              fields:
+                -
+                  import: about_section
+            popular_tours:
+              display: 'Popular Events'
+              fields:
+                -
+                  import: popular_tours
+            full_video:
+              display: 'Full Video'
+              fields:
+                -
+                  import: full_video
+            perfect_travel:
+              display: 'Right hall'
+              fields:
+                -
+                  import: perfect_travel
+            why_choose_us:
+              display: 'Why Choose Us'
+              fields:
+                -
+                  import: why_choose_us
+            testimonial_section:
+              display: 'Testimonial Section'
+              fields:
+                -
+                  import: testimonial_section
+            latest_blog:
+              display: 'Latest Blog'
+              fields:
+                -
+                  import: latest_blog

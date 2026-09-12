@@ -1,0 +1,35 @@
+{{ partial:inner-banner banner_title="Blog" }}
+<section>
+  <div class="container">
+    {{ partial:layout-switch }}
+    <div class="md:flex md:-mx-3 lg:-mx-5">
+      <div class="w-full md:px-3 lg:px-5 md:order-1">
+        {{ collection:blogs sort="date:desc" paginate="4" as="posts" }}
+          {{ posts }}
+          <div class="relative group mb-8">
+            <div class="relative w-full overflow-hidden before:pt-[40%] before:block rounded-t-xl">
+              <a href="{{ url }}">
+                <img src="{{ if image }}{{ image:url }}{{ else }}/assets/images/blog-img1.jpg{{ /if }}" alt="{{ title }}" class="transition-all group-hover:scale-105 absolute top-0 left-0 w-full h-full object-cover duration-300">
+              </a>
+            </div>
+            <div class="py-4 lg:py-6 px-6 lg:px-9 bg-gray-400 rounded-b-xl">
+              <div class="flex flex-wrap gap-x-4 md:gap-x-8 text-15 text-dark-800 mb-4">
+                <div class="flex items-center gap-2"><img src="/assets/images/clock-icon.svg" alt=""> {{ date format="j M Y" }}</div>
+                <div class="flex items-center gap-2"><img src="/assets/images/comment-o.svg" alt=""> 0 Comments</div>
+                <div class="flex items-center gap-2"><img src="/assets/images/user_outline.svg" alt=""> By John</div>
+              </div>
+              <h3 class="text-xl md:text-25 xl:leading-normal mb-2 hover:text-primary-900"><a href="{{ url }}">{{ title }}</a></h3>
+              {{ if excerpt }}<p class="text-md leading-normal mb-4 text-dark-800">{{ excerpt }}</p>{{ /if }}
+              <a href="{{ url }}" class="btn btn-primary btn-lg">Read more</a>
+            </div>
+          </div>
+          {{ /posts }}
+          {{ partial:pagination }}
+        {{ /collection:blogs }}
+      </div>
+      <div class="w-full md:max-w-[300px] lg:max-w-[340px] shrink-0 md:px-3 lg:px-5 md:order-2 mt-8 md:mt-0">
+        {{ partial:sidebar/blog }}
+      </div>
+    </div>
+  </div>
+</section>

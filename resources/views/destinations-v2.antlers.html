@@ -1,0 +1,11 @@
+{{ partial:inner-banner banner_title="Cities" }}
+<section class="atrium-cities-section">
+  <div class="container">
+    {{ partial:layout-switch }}
+    <div class="atrium-cities-list">
+      {{ collection:destinations }}
+        {{ partial:cards/city-row }}
+      {{ /collection:destinations }}
+    </div>
+  </div>
+</section>

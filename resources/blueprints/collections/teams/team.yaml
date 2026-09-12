@@ -1,0 +1,69 @@
+title: Team
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field: { type: text, required: true }
+          -
+            handle: role
+            field: { type: text, display: Role }
+          -
+            handle: image
+            field: { type: assets, container: assets, max_files: 1, display: Image }
+          -
+            handle: biography
+            field: { type: markdown, display: Biography }
+          -
+            handle: highlights
+            field:
+              type: grid
+              display: Highlights
+              fields:
+                -
+                  handle: text
+                  field: { type: text }
+          -
+            handle: skills
+            field:
+              type: grid
+              display: Skills
+              fields:
+                -
+                  handle: label
+                  field: { type: text }
+                -
+                  handle: percent
+                  field: { type: text }
+          -
+            handle: chronology
+            field:
+              type: grid
+              display: Chronology
+              fields:
+                -
+                  handle: period
+                  field: { type: text }
+                -
+                  handle: text
+                  field: { type: text }
+          -
+            handle: facebook
+            field: { type: text }
+          -
+            handle: twitter
+            field: { type: text }
+          -
+            handle: instagram
+            field: { type: text }
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field: { type: slug }

@@ -1,0 +1,72 @@
+title: Booking
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field: { type: text, required: true }
+          -
+            handle: booking_status
+            field:
+              type: select
+              display: Status
+              options:
+                - Pending
+                - Confirm
+              default: Confirm
+          -
+            handle: customer_email
+            field: { type: text, display: Email }
+          -
+            handle: first_name
+            field: { type: text, display: 'First Name' }
+          -
+            handle: last_name
+            field: { type: text, display: 'Last Name' }
+          -
+            handle: phone
+            field: { type: text, display: Phone }
+          -
+            handle: address
+            field: { type: textarea, display: Address }
+          -
+            handle: travel_date
+            field: { type: text, display: 'Travel Date' }
+          -
+            handle: total
+            field: { type: text, display: Total }
+          -
+            handle: items
+            field:
+              type: grid
+              display: Items
+              fields:
+                -
+                  handle: type
+                  field: { type: text, display: Type }
+                -
+                  handle: title
+                  field: { type: text, display: Title }
+                -
+                  handle: url
+                  field: { type: text, display: URL }
+                -
+                  handle: persons
+                  field: { type: text, display: Persons }
+                -
+                  handle: price
+                  field: { type: text, display: Price }
+                -
+                  handle: line_total
+                  field: { type: text, display: Total }
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field: { type: slug }

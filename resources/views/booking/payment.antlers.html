@@ -1,0 +1,39 @@
+<div class="bg-gray-200 mb-10 md:mb-14 py-10 md:py-11">
+  <div class="container">
+    {{ partial:booking/stepper step="3" }}
+    {{ if booking_cart:empty || ! booking_cart:contact:email }}
+    <p>Please complete your cart and contact details first. <a href="/booking/cart" class="text-primary-900 underline">Back to cart</a></p>
+    {{ else }}
+    <div class="flex flex-wrap">
+      <div class="w-full md:w-2/3 mb-8 md:pr-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+          <div class="shadow-box-4 rounded-xl py-5 md:py-7 px-5 bg-white">
+            <h2 class="text-lg mb-4 pb-4 border-b border-primary-800">Order Summary</h2>
+            {{ booking_cart:items }}
+            <p class="mb-0 text-md"><strong>{{ type | ucfirst }} :</strong> {{ title }} × {{ persons }}</p>
+            {{ /booking_cart:items }}
+            {{ if booking_cart:contact:travel_date }}<p class="mb-0 text-md"><strong>Event Date :</strong> {{ booking_cart:contact:travel_date }}</p>{{ /if }}
+          </div>
+          <div class="shadow-box-4 rounded-xl py-5 md:py-7 px-5 bg-white">
+            <h2 class="text-lg mb-4 pb-4 border-b border-primary-800">Billing Detail</h2>
+            <p class="mb-0 text-md"><strong>Name :</strong> {{ booking_cart:contact:first_name }} {{ booking_cart:contact:last_name }}</p>
+            <p class="mb-0 text-md"><strong>Email :</strong> {{ booking_cart:contact:email }}</p>
+            <p class="mb-0 text-md"><strong>Phone :</strong> {{ booking_cart:contact:phone }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="w-full md:w-1/3">
+        <div class="flex items-center justify-between text-lg py-5 border-y border-primary-800 mb-6">
+          <strong>Total Price</strong><strong class="text-primary-900">${{ booking_cart:total_formatted }}</strong></div>
+        <h3 class="text-xl mb-5 pb-4 border-b border-primary-800">Payment Method</h3>
+        <p class="text-sm text-dark-800 mb-4">Demo checkout — no card is charged. Confirm to save this booking.</p>
+        <div class="mb-5"><img src="/assets/images/payments-icon-img.png" alt=""></div>
+        <form action="/booking/pay" method="post">
+          <input type="hidden" name="_token" value="{{ csrf_token }}">
+          <button type="submit" class="btn btn-primary flex items-center justify-center w-full gap-2 font-semibold">Pay now <img src="/assets/images/arrow-right.svg" alt=""></button>
+        </form>
+      </div>
+    </div>
+    {{ /if }}
+  </div>
+</div>

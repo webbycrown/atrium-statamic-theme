@@ -1,0 +1,11 @@
+<div class="event-price mt-auto flex items-center justify-between gap-3 px-5 py-3 bg-primary-800 rounded-b-xl">
+  <span class="text-xs uppercase tracking-[0.08em] text-dark-800">From</span>
+  <div class="flex items-baseline justify-end gap-2">
+    {{ if compare_price }}
+    <span class="text-sm font-semibold text-dark-800 line-through">${{ compare_price | format_number:0 }}</span>
+    {{ /if }}
+    {{ if price }}
+    <span class="text-xl font-bold text-dark-900 leading-none">${{ price | format_number:0 }}</span>
+    {{ /if }}
+  </div>
+</div>

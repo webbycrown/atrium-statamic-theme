@@ -1,0 +1,59 @@
+{{ partial:inner-banner :banner_title="title" }}
+<section>
+  <div class="container">
+    <div class="sm:flex items-center gap-5 md:gap-12 mb-8 md:mb-14">
+      <div class="overflow-hidden mx-auto sm:mx-0 w-[200px] h-[200px] md:w-[298px] md:h-[298px] rounded-full">
+        {{ if image }}<img src="{{ image:url }}" alt="{{ title }}" class="w-full h-full object-cover">{{ /if }}
+      </div>
+      <div class="text-center sm:text-left">
+        <h2 class="mb-2">{{ title }}</h2>
+        {{ if role }}<p class="mb-4">{{ role }}</p>{{ /if }}
+        <ul class="flex items-center justify-center lg:justify-start space-x-4 text-md text-primary-900">
+          {{ if facebook }}<li><a href="{{ facebook }}" class="w-8 h-8 rounded-full flex items-center justify-center transition-all bg-primary-800 text-primary-900 hover:bg-primary-900 hover:text-white"><i class="fa-brands fa-facebook"></i></a></li>{{ /if }}
+          {{ if twitter }}<li><a href="{{ twitter }}" class="w-8 h-8 rounded-full flex items-center justify-center transition-all bg-primary-800 text-primary-900 hover:bg-primary-900 hover:text-white"><i class="fa-brands fa-twitter"></i></a></li>{{ /if }}
+          {{ if instagram }}<li><a href="{{ instagram }}" class="w-8 h-8 rounded-full flex items-center justify-center transition-all bg-primary-800 text-primary-900 hover:bg-primary-900 hover:text-white"><i class="fa-brands fa-instagram"></i></a></li>{{ /if }}
+        </ul>
+      </div>
+    </div>
+    <div class="flex flex-wrap md:-mx-7">
+      <div class="w-full md:w-1/2 md:px-7">
+        <h4 class="text-xl md:text-25">Biography</h4>
+        {{ biography }}
+        {{ if highlights }}
+        <ul class="mb-8 list-style-2">
+          {{ highlights }}<li>{{ text }}</li>{{ /highlights }}
+        </ul>
+        {{ /if }}
+      </div>
+      <div class="w-full md:w-1/2 md:px-7">
+        {{ if skills }}
+        <div class="mb-8 md:mb-12">
+          <h4 class="text-xl md:text-25">Skills</h4>
+          {{ skills }}
+          <div class="relative min-w-full mt-6">
+            <div class="flex items-center justify-between mb-1.5">
+              <h5 class="text-lg mb-0 font-semibold leading-normal">{{ label }}</h5>
+              <span class="text-lg mb-0 font-normal text-dark-800 leading-normal">{{ percent }}%</span>
+            </div>
+            <div class="h-1 bg-primary-800">
+              <div class="h-1 bg-primary-900" style="width: {{ percent }}%;"></div>
+            </div>
+          </div>
+          {{ /skills }}
+        </div>
+        {{ /if }}
+        {{ if chronology }}
+        <div class="mb-8 md:mb-12">
+          <h4 class="text-xl md:text-25">Chronology</h4>
+          {{ chronology }}
+          <div class="relative min-w-full mt-6">
+            <h5 class="text-lg mb-0 font-bold leading-normal">{{ period }}</h5>
+            <p>{{ text }}</p>
+          </div>
+          {{ /chronology }}
+        </div>
+        {{ /if }}
+      </div>
+    </div>
+  </div>
+</section>

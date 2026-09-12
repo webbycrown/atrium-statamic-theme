@@ -1,0 +1,30 @@
+<div class="bg-gray-200 mb-10 md:mb-14 py-10 md:py-11">
+  <div class="container">
+    {{ partial:booking/stepper step="4" }}
+    <div class="flex flex-wrap">
+      <div class="w-full md:w-2/3 mb-8 md:pr-8">
+        <div class="shadow-box-4 w-full rounded-xl py-5 md:py-9 px-5 md:px-6 bg-white text-center">
+          <h2 class="text-lg mb-5 pb-4 border-b border-primary-800">Booking Completed!</h2>
+          <p class="text-1xl">Thank you{{ if last_order:first_name }}, {{ last_order:first_name }}{{ /if }}!</p>
+          <p class="max-w-[465px] mx-auto">
+            {{ if last_order }}
+            Your booking <strong>{{ last_order:title }}</strong> is confirmed. You can check it from your dashboard.
+            {{ else }}
+            Your booking has been saved. Sign in with the email you used at checkout to see it on your dashboard.
+            {{ /if }}
+          </p>
+          <a href="/booking/dashboard" class="btn btn-primary mx-auto font-semibold">Go to my dashboard</a>
+        </div>
+      </div>
+      <div class="w-full md:w-1/3">
+        {{ if last_order }}
+        <h3 class="text-xl mb-5 md:text-25">{{ last_order:first_item }}</h3>
+        {{ if last_order:travel_date }}<p class="mb-4">Event Date : {{ last_order:travel_date }}</p>{{ /if }}
+        <div class="flex items-center justify-between text-lg py-5 border-y border-primary-800">
+          <strong>Total Price</strong><strong class="text-primary-900">${{ last_order:total }}</strong>
+        </div>
+        {{ /if }}
+      </div>
+    </div>
+  </div>
+</div>

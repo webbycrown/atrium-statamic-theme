@@ -1,0 +1,18 @@
+{{ if current_uri == '/events' || current_uri == '/events/list' || current_uri == '/events/grid' }}
+<div class="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-8 text-sm md:text-md font-semibold">
+  <a href="/events" class="px-3 py-1.5 rounded-full border {{ if current_uri == '/events' }}border-primary-900 bg-primary-900 text-white{{ else }}border-primary-800 text-dark-800 hover:text-primary-900{{ /if }}">Events</a>
+  <a href="/events/list" class="px-3 py-1.5 rounded-full border {{ if current_uri == '/events/list' }}border-primary-900 bg-primary-900 text-white{{ else }}border-primary-800 text-dark-800 hover:text-primary-900{{ /if }}">List</a>
+  <a href="/events/grid" class="px-3 py-1.5 rounded-full border {{ if current_uri == '/events/grid' }}border-primary-900 bg-primary-900 text-white{{ else }}border-primary-800 text-dark-800 hover:text-primary-900{{ /if }}">Grid</a>
+</div>
+{{ elseif current_uri == '/cities' || current_uri == '/cities/v2' }}
+<div class="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-8 text-sm md:text-md font-semibold">
+  <a href="/cities" class="px-3 py-1.5 rounded-full border {{ if current_uri == '/cities' }}border-primary-900 bg-primary-900 text-white{{ else }}border-primary-800 text-dark-800 hover:text-primary-900{{ /if }}">Grid</a>
+  <a href="/cities/v2" class="px-3 py-1.5 rounded-full border {{ if current_uri == '/cities/v2' }}border-primary-900 bg-primary-900 text-white{{ else }}border-primary-800 text-dark-800 hover:text-primary-900{{ /if }}">List</a>
+</div>
+{{ elseif current_uri == '/blog' || current_uri == '/blog/grid' || current_uri == '/blog/sidebar' }}
+<div class="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-8 text-sm md:text-md font-semibold">
+  <a href="/blog" class="px-3 py-1.5 rounded-full border {{ if current_uri == '/blog' }}border-primary-900 bg-primary-900 text-white{{ else }}border-primary-800 text-dark-800 hover:text-primary-900{{ /if }}">Blog</a>
+  <a href="/blog/grid" class="px-3 py-1.5 rounded-full border {{ if current_uri == '/blog/grid' }}border-primary-900 bg-primary-900 text-white{{ else }}border-primary-800 text-dark-800 hover:text-primary-900{{ /if }}">Grid</a>
+  <a href="/blog/sidebar" class="px-3 py-1.5 rounded-full border {{ if current_uri == '/blog/sidebar' }}border-primary-900 bg-primary-900 text-white{{ else }}border-primary-800 text-dark-800 hover:text-primary-900{{ /if }}">Sidebar</a>
+</div>
+{{ /if }}

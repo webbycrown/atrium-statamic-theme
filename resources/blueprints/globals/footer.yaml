@@ -1,0 +1,49 @@
+title: Footer
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: blurb
+            field: { type: textarea, display: Blurb }
+          -
+            handle: address
+            field: { type: textarea, display: Address }
+          -
+            handle: phone
+            field: { type: text, display: Phone }
+          -
+            handle: email
+            field: { type: text, display: Email }
+          -
+            handle: facebook
+            field: { type: text, display: Facebook }
+          -
+            handle: twitter
+            field: { type: text, display: Twitter }
+          -
+            handle: youtube
+            field: { type: text, display: YouTube }
+          -
+            handle: instagram
+            field: { type: text, display: Instagram }
+          -
+            handle: newsletter_title
+            field: { type: text, display: 'Newsletter Title' }
+          -
+            handle: newsletter_text
+            field: { type: textarea, display: 'Newsletter Text' }
+          -
+            handle: copyright
+            field: { type: text, display: Copyright }
+          -
+            handle: credit
+            field: { type: text, display: Credit }
+          -
+            handle: gallery
+            field:
+              container: assets
+              type: assets
+              display: Gallery

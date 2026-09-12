@@ -1,0 +1,22 @@
+{{ partial:inner-banner :banner_title="title" :banner_image="image:url" }}
+<section>
+  <div class="container">
+    <div class="md:flex md:-mx-3 lg:-mx-5">
+      <div class="w-full md:px-3 lg:px-5">
+        <div class="blog-detail">
+          <span class="text-12 text-dark-800">{{ date format="M j, Y" }}</span>
+          <h2 class="mb-6">{{ title }}</h2>
+          {{ image }}
+          <div class="mb-8 rounded-2xl overflow-hidden before:pt-[40%] before:block relative min-h-[220px]">
+            <img src="{{ url }}" alt="{{ title }}" class="absolute top-0 left-0 w-full h-full object-cover">
+          </div>
+          {{ /image }}
+          <div class="leading-1xl">{{ content }}</div>
+        </div>
+      </div>
+      <div class="w-full md:max-w-[300px] lg:max-w-[340px] shrink-0 md:px-3 lg:px-5 mt-8 md:mt-0">
+        {{ partial:sidebar/blog }}
+      </div>
+    </div>
+  </div>
+</section>

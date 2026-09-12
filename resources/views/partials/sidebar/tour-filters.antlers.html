@@ -1,0 +1,36 @@
+<div class="search-location bg-gray-200 border border-primary-800 rounded-1xl py-3.5 px-5 mb-9">
+  <h2 class="text-lg font-bold mb-4">Search tour</h2>
+  <form action="/events" method="get">
+    <div class="mb-3 relative">
+      <input type="text" name="q" value="{{ get:q }}" placeholder="Keyword" class="form-control">
+    </div>
+    <div class="mb-3 relative">
+      <select name="destination" class="select-box">
+        <option value="">Location</option>
+        {{ collection:destinations }}
+        <option value="{{ slug }}"{{ if get:destination == slug }} selected{{ /if }}>{{ title }}</option>
+        {{ /collection:destinations }}
+      </select>
+    </div>
+    <div class="mb-3 relative">
+      <select name="duration" class="select-box">
+        <option value="">Event type</option>
+        {{ taxonomy:tour_type }}
+        <option value="{{ slug }}"{{ if get:duration == slug }} selected{{ /if }}>{{ title }}</option>
+        {{ /taxonomy:tour_type }}
+      </select>
+    </div>
+    <div>
+      <button type="submit" class="btn btn-primary max-w-full w-full text-sm font-semibold">Search</button>
+    </div>
+  </form>
+</div>
+<div class="mb-9">
+  <h2 class="text-lg font-bold mb-6">Category Types</h2>
+  <ul class="space-y-2 category-checkbox">
+    <li><div class="flex items-center justify-between text-dark-800 text-md"><label class="checkcontainer leading-normal">Events<input type="checkbox"><span class="checkmark"></span></label><span>98</span></div></li>
+    <li><div class="flex items-center justify-between text-dark-800 text-md"><label class="checkcontainer leading-normal">Attractions<input type="checkbox"><span class="checkmark"></span></label><span>89</span></div></li>
+    <li><div class="flex items-center justify-between text-dark-800 text-md"><label class="checkcontainer leading-normal">Day Events<input type="checkbox"><span class="checkmark"></span></label><span>67</span></div></li>
+    <li><div class="flex items-center justify-between text-dark-800 text-md"><label class="checkcontainer leading-normal">Outdoor Activities<input type="checkbox"><span class="checkmark"></span></label><span>10</span></div></li>
+  </ul>
+</div>

@@ -1,0 +1,64 @@
+.atrium-video-modal.mfp-bg {
+  background: #0E2A47;
+  opacity: 0.9;
+}
+.atrium-video-modal .mfp-iframe-holder .mfp-content {
+  max-width: 960px;
+}
+.atrium-video-modal .mfp-iframe-scaler {
+  overflow: hidden;
+  border-radius: 20px;
+  background: #0E2A47;
+  box-shadow: 0 8px 32px rgba(14, 42, 71, 0.35);
+}
+.atrium-video-modal .mfp-iframe-scaler iframe {
+  border-radius: 20px;
+}
+.atrium-video-modal .mfp-close {
+  width: 44px;
+  height: 44px;
+  top: -52px;
+  right: 0;
+  background: #E07A3D;
+  color: #fff;
+  opacity: 1;
+  border-radius: 50%;
+  font-size: 28px;
+  line-height: 44px;
+  text-align: center;
+  padding: 0;
+}
+.atrium-video-modal .mfp-close:hover,
+.atrium-video-modal .mfp-close:focus {
+  background: #0E2A47;
+  color: #fff;
+  opacity: 1;
+}
+.video-play-icon {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.video-play-icon:hover {
+  transform: scale(1.06);
+  background: #E07A3D;
+}
+.video-play-icon:hover path {
+  fill: #fff;
+}
+.booking-form .form-control,
+.booking-form select.form-control,
+.booking-form input.form-control {
+  background-color: #fff !important;
+  color: #0E2A47;
+}
+.booking-form select.form-control {
+  background: #fff url('/assets/images/arrow-down.svg') no-repeat center right 8px !important;
+  background-size: 12px !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding-right: 1.5rem;
+}
+.booking-form select.form-control option {
+  background-color: #fff;
+  color: #0E2A47;
+}

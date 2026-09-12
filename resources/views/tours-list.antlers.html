@@ -1,0 +1,19 @@
+{{ partial:inner-banner banner_title="Events" }}
+<section>
+  <div class="container">
+    {{ partial:layout-switch }}
+    <div class="md:flex md:-mx-3 lg:-mx-5">
+      <div class="w-full md:max-w-[300px] lg:max-w-[340px] shrink-0 md:px-3 lg:px-5">
+        {{ partial:sidebar/tour-filters }}
+      </div>
+      <div class="w-full md:px-3 lg:px-5">
+        {{ collection:tours paginate="5" as="tours" }}
+          {{ tours }}
+            {{ partial:cards/tour-row }}
+          {{ /tours }}
+          {{ partial:pagination }}
+        {{ /collection:tours }}
+      </div>
+    </div>
+  </div>
+</section>

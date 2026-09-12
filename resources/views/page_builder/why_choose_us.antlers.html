@@ -1,0 +1,40 @@
+<section class="why-choose-us-section pt-20 md:pt-32 pb-10 md:pb-20 lg:pb-28 lg:-mt-14 relative">
+  <div class="absolute -top-0 lg:-top-12 left-0 w-full">
+    <img src="/assets/images/why-choose-us-bg.svg" alt="" class="w-full block">
+  </div>
+  <div class="container relative">
+    <div class="text-center mb-10 md:mb-14">
+      <h2>{{ heading }}</h2>
+      {{ if description }}<p class="max-w-[590px] mx-auto">{{ description }}</p>{{ /if }}
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-7">
+      {{ features }}
+      <div class="shadow-box-2 group rounded-4xl py-3 md:py-5 px-3 flex items-center gap-5">
+        <div class="bg-primary-800 rounded-2xl w-24 h-24 flex items-center justify-center shrink-0 transition-all">
+          {{ icon }}<img src="{{ url }}" alt="{{ title }}">{{ /icon }}
+        </div>
+        <div>
+          <h5 class="text-lg mb-2">{{ title }}</h5>
+          <p class="text-sm mb-0">{{ text }}</p>
+        </div>
+      </div>
+      {{ /features }}
+    </div>
+    {{ if deals }}
+    <div class="mt-10 md:mt-24 grid grid-cols-1 md:grid-cols-2 gap-7">
+      {{ deals }}
+      <div class="py-10 lg:py-16 px-5 lg:px-10 relative rounded-5xl overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full">
+          {{ image }}<img src="{{ url }}" alt="{{ title }}" class="block w-full h-full object-cover">{{ /image }}
+        </div>
+        <div class="relative max-w-[250px]">
+          <h4 class="mb-3">{{ title }}</h4>
+          <p class="text-dark-900">{{ text }}</p>
+          <a href="{{ button_url ?? '/events' }}" class="btn btn-light btn-md shadow-btn mx-0">{{ button_text ?? 'View deals' }} <i class="fa-regular fa-arrow-right ml-3"></i></a>
+        </div>
+      </div>
+      {{ /deals }}
+    </div>
+    {{ /if }}
+  </div>
+</section>

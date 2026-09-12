@@ -1,0 +1,42 @@
+<section class="about-section">
+  <div class="container">
+    <div class="flex flex-wrap -mx-4">
+      <div class="w-full md:w-2/4 px-4">
+        {{ about_images }}
+        <div class="relative border-[6px] border-white shadow-box-1 rounded-md max-w-[330px] overflow-hidden before:pt-[73%] before:block {{ if index == 1 }}mx-auto mr-5 md:mr-14 -mt-32 -mb-14 rotate-12{{ elseif index == 2 }}ml-5 md:ml-0 -rotate-[8deg]{{ /if }}">
+          <img src="{{ url }}" alt="{{ alt ?? 'about' }}" class="absolute top-0 left-0 w-full h-full object-cover">
+        </div>
+        {{ /about_images }}
+      </div>
+      <div class="w-full md:w-2/4 px-4 mt-10 md:mt-0">
+        <h2>{{ heading }}</h2>
+        {{ if description }}<p>{{ description }}</p>{{ /if }}
+        {{ if highlights }}
+        <ul class="ul-list mb-9">
+          {{ highlights }}
+          <li>{{ text }}</li>
+          {{ /highlights }}
+        </ul>
+        {{ /if }}
+        <div class="bg-white rounded-xl py-4 px-4 xl:px-5 shadow-box-1 justify-between flex flex-wrap lg:flex-nowrap items-center gap-5 text-md xl:text-lg text-dark-900">
+          {{ setting }}
+          {{ if phone }}
+          <a href="tel:{{ phone }}" class="flex items-center gap-2 xl:gap-4 hover:text-primary-900">
+            <span class="bg-primary-900 w-[46px] h-[46px] rounded-full flex items-center justify-center text-white text-lg shrink-0"><i class="fa-solid fa-phone"></i></span>
+            {{ phone }}
+          </a>
+          {{ /if }}
+          {{ /setting }}
+          {{ footer }}
+          {{ if email }}
+          <a href="mailto:{{ email }}" class="flex items-center gap-2 xl:gap-4 hover:text-primary-900">
+            <span class="bg-primary-900 w-[46px] h-[46px] rounded-full flex items-center justify-center text-white text-lg shrink-0"><i class="fa-solid fa-envelope"></i></span>
+            {{ email }}
+          </a>
+          {{ /if }}
+          {{ /footer }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

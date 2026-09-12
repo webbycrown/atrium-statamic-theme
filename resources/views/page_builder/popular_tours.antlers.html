@@ -1,0 +1,25 @@
+<section class="customers-purchased-section py-10 md:py-20 lg:py-28 overflow-hidden">
+  <div class="container">
+    <div class="mb-8 md:mb-14 flex items-end justify-between">
+      <div class="max-w-[600px]">
+        <h2>{{ heading }}</h2>
+        {{ if description }}<p class="m-0">{{ description }}</p>{{ /if }}
+      </div>
+      <div class="slider-arrow popular-events-arrows">
+        <div class="swiper-button-prev arrow"></div>
+        <div class="swiper-button-next arrow static m-0"></div>
+      </div>
+    </div>
+    <div class="mt-6 popular-tours-slider">
+      <div class="swiper mySwiper overflow-visible">
+        <div class="swiper-wrapper">
+          {{ collection:tours limit="6" }}
+          <div class="swiper-slide">
+            {{ partial:cards/tour }}
+          </div>
+          {{ /collection:tours }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,59 @@
+{{ if current_uri | starts_with:'/events' }}
+  {{ fallback_banner = '/assets/images/event-venue-20.jpg' }}
+{{ elseif current_uri | starts_with:'/cities' }}
+  {{ fallback_banner = '/assets/images/categories-img-3.jpg' }}
+{{ elseif current_uri | starts_with:'/venues' }}
+  {{ fallback_banner = '/assets/images/hotel-img2.jpg' }}
+{{ elseif current_uri | starts_with:'/blog' }}
+  {{ fallback_banner = '/assets/images/event-venue-20.jpg' }}
+{{ elseif current_uri | starts_with:'/gallery' }}
+  {{ fallback_banner = '/assets/images/event-venue-1.jpg' }}
+{{ elseif current_uri | starts_with:'/team' }}
+  {{ fallback_banner = '/assets/images/hotel-detail-img4.jpg' }}
+{{ elseif current_uri | starts_with:'/about' }}
+  {{ fallback_banner = '/assets/images/hotel-detail-img2.jpg' }}
+{{ elseif current_uri | starts_with:'/contact' }}
+  {{ fallback_banner = '/assets/images/hotel-detail-img5.jpg' }}
+{{ elseif current_uri | starts_with:'/booking' }}
+  {{ fallback_banner = '/assets/images/hotel-img4.jpg' }}
+{{ else }}
+  {{ fallback_banner = '/assets/images/hotel-detail-img1.jpg' }}
+{{ /if }}
+
+<section class="hero-section atrium-inner-banner min-h-[260px] md:min-h-[340px] relative grid content-center py-14 md:py-20 lg:py-28">
+  <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
+    {{ if image }}
+      {{ image }}
+      <img src="{{ url }}" alt="{{ banner_title ?? title }}" class="w-full h-full object-cover">
+      {{ /image }}
+    {{ elseif banner_image }}
+      <img src="{{ banner_image }}" alt="{{ banner_title ?? title }}" class="w-full h-full object-cover">
+    {{ else }}
+      <img src="{{ fallback_banner }}" alt="{{ banner_title ?? title }}" class="w-full h-full object-cover">
+    {{ /if }}
+    <div class="absolute inset-0 bg-[#0E2A47]/55"></div>
+    <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#E07A3D]/35 to-transparent"></div>
+  </div>
+  <div class="hero-content-slider relative z-1">
+    <div class="container text-center">
+      <h1 class="text-white text-30 md:text-4xl leading-normal mb-0">{{ banner_title ?? title }}</h1>
+      <nav class="w-full rounded-md">
+        <ol class="list-reset flex justify-center text-white text-md md:text-lg font-normal">
+          <li><a href="/" class="text-gray-300 hover:text-white">Home</a></li>
+          <li><span class="mx-2 text-gray-300">&gt;</span></li>
+          {{ if current_uri | starts_with:'/events/' }}
+          <li><a href="/events" class="text-gray-300 hover:text-white">Events</a></li>
+          <li><span class="mx-2 text-gray-300">&gt;</span></li>
+          {{ elseif current_uri | starts_with:'/cities/' }}
+          <li><a href="/cities" class="text-gray-300 hover:text-white">Cities</a></li>
+          <li><span class="mx-2 text-gray-300">&gt;</span></li>
+          {{ elseif current_uri | starts_with:'/venues/' }}
+          <li><a href="/venues" class="text-gray-300 hover:text-white">Venues</a></li>
+          <li><span class="mx-2 text-gray-300">&gt;</span></li>
+          {{ /if }}
+          <li>{{ banner_title ?? title }}</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+</section>

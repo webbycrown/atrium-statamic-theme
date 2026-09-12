@@ -1,0 +1,20 @@
+title: 'About Section'
+fields:
+  -
+    handle: heading
+    field: { type: text, display: Heading }
+  -
+    handle: description
+    field: { type: textarea, display: Description }
+  -
+    handle: about_images
+    field: { type: assets, container: assets, display: Images }
+  -
+    handle: highlights
+    field:
+      type: grid
+      display: Highlights
+      fields:
+        -
+          handle: text
+          field: { type: text, display: Text }

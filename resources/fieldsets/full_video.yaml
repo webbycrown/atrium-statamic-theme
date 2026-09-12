@@ -1,0 +1,11 @@
+title: 'Full Video'
+fields:
+  -
+    handle: heading
+    field: { type: text, display: Heading }
+  -
+    handle: video_image
+    field: { type: assets, container: assets, max_files: 1, display: Image }
+  -
+    handle: video_url
+    field: { type: text, display: 'Video URL' }

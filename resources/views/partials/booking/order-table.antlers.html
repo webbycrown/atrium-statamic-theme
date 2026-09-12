@@ -1,0 +1,26 @@
+<div class="w-full overflow-x-auto">
+  <table class="table-list table-auto whitespace-nowrap">
+    <thead><tr><th>Type</th><th>Title</th><th>Order Date</th><th>Total</th><th>Status</th></tr></thead>
+    <tbody>
+      {{ if my_bookings }}
+      {{ my_bookings }}
+      <tr>
+        <td>{{ first_type }}</td>
+        <td><a href="/booking/detail?order={{ slug }}">{{ first_item }}</a></td>
+        <td>{{ date }}</td>
+        <td>${{ total }}</td>
+        <td>
+          {{ if status == "Pending" }}
+          <span class="bg-[#F8E6D4] text-[#C9A36A] py-1 px-3 rounded-full text-15">Pending</span>
+          {{ else }}
+          <span class="bg-primary-800 text-primary-900 py-1 px-3 rounded-full text-15">{{ status }}</span>
+          {{ /if }}
+        </td>
+      </tr>
+      {{ /my_bookings }}
+      {{ else }}
+      <tr><td colspan="5">No bookings yet. <a href="/events" class="text-primary-900 underline">Browse events</a></td></tr>
+      {{ /if }}
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,56 @@
+{{ partial:inner-banner banner_title="Events" }}
+<section class="events-catalog-section">
+  <div class="container">
+    {{ partial:layout-switch }}
+    {{ partial:tour-search-form }}
+    {{ if get:q || get:destination || get:duration }}
+    <div class="text-center mb-8 md:mb-12">
+      <h2>Search results</h2>
+      <p class="mb-2">
+        {{ if get:q }}Keyword: {{ get:q }}{{ /if }}
+        {{ if get:destination }}{{ if get:q }} · {{ /if }}City: {{ get:destination | deslugify | title }}{{ /if }}
+        {{ if get:duration }}{{ if get:q || get:destination }} · {{ /if }}Event type: {{ get:duration | deslugify | title }}{{ /if }}
+      </p>
+      <a href="/events" class="link">Clear filters</a>
+    </div>
+    {{ /if }}
+
+    {{ if get:duration }}
+      {{ collection:tours :taxonomy:tour_type="get:duration" paginate="9" as="tours" }}
+        <div class="tours-results-grid">
+          {{ tours }}
+          {{ if !get:q || (title | lower | contains:{get:q | lower}) || (excerpt | lower | contains:{get:q | lower}) || (location | lower | contains:{get:q | lower}) }}
+            {{ if !get:destination || destination:slug == get:destination || (title | lower | contains:{get:destination | lower}) || (location | lower | contains:{get:destination | lower}) }}
+              {{ partial:cards/tour-list }}
+            {{ /if }}
+          {{ /if }}
+          {{ /tours }}
+        </div>
+        {{ partial:pagination centered="true" }}
+      {{ /collection:tours }}
+    {{ else }}
+      {{ collection:tours paginate="9" as="tours" }}
+        <div class="tours-results-grid">
+          {{ tours }}
+          {{ if !get:q || (title | lower | contains:{get:q | lower}) || (excerpt | lower | contains:{get:q | lower}) || (location | lower | contains:{get:q | lower}) }}
+            {{ if !get:destination || destination:slug == get:destination || (title | lower | contains:{get:destination | lower}) || (location | lower | contains:{get:destination | lower}) }}
+              {{ partial:cards/tour-list }}
+            {{ /if }}
+          {{ /if }}
+          {{ /tours }}
+        </div>
+        {{ partial:pagination centered="true" }}
+      {{ /collection:tours }}
+    {{ /if }}
+    <p class="js-empty-tours text-center mt-8 hidden">No events match this search. <a href="/events" class="link">View all events</a></p>
+  </div>
+</section>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var grid = document.querySelector('.tours-results-grid');
+  var empty = document.querySelector('.js-empty-tours');
+  if (grid && empty && !grid.querySelector('.tour-result-card')) {
+    empty.classList.remove('hidden');
+  }
+});
+</script>

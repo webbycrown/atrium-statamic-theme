@@ -1,0 +1,10 @@
+{{ partial:inner-banner banner_title="Venues" }}
+<section>
+  <div class="container">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+      {{ collection:hotels }}
+        {{ partial:cards/hotel }}
+      {{ /collection:hotels }}
+    </div>
+  </div>
+</section>

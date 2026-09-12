@@ -1,0 +1,23 @@
+title: Footer
+data:
+  blurb: 'Atrium books ballrooms, conference floors, and private halls. Tell us the date and the brief — we match the room.'
+  address: '120 N Wacker Dr, Chicago IL 60606'
+  phone: '(312) 555-0148'
+  email: atrium@example.com
+  facebook: '#'
+  twitter: '#'
+  youtube: '#'
+  instagram: '#'
+  newsletter_title: 'Get open dates first'
+  newsletter_text: 'New halls and seasonal packages. No travel deals — venue availability only.'
+  copyright: 'Copyright 2026 Atrium. All Rights Reserved.'
+  credit: 'Design by WebbyCrown.'
+  gallery:
+    - images/event-venue-1.jpg
+    - images/event-venue-2.jpg
+    - images/event-venue-4.jpg
+    - images/event-venue-5.jpg
+    - images/event-venue-6.jpg
+    - images/event-venue-8.jpg
+    - images/event-venue-11.jpg
+    - images/event-venue-12.jpg

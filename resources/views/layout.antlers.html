@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ partial:header-link }}
+<body>
+  <div class="preloader">
+    {{ setting }}
+    {{ logo }}<img src="{{ url }}" alt="{{ site:name }}" class="w-[160px] h-auto">{{ /logo }}
+    {{ /setting }}
+  </div>
+  <div class="text-md md:text-lg font-red-hat-display text-dark-800 leading-xl" x-data="{ show: false, open: false, pages: false, megaTimer: null }">
+    {{ setting }}
+    {{ partial:{{ header_select ?? 'header' }} }}
+    {{ /setting }}
+
+    <div class="main-wrapper">
+      {{ template_content }}
+    </div>
+
+    {{ setting }}
+    {{ partial:{{ footer_select ?? 'footer' }} }}
+    {{ /setting }}
+    {{ partial:footer-link }}
+  </div>
+</body>
+</html>

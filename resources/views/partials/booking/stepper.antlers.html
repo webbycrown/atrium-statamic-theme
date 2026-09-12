@@ -1,0 +1,7 @@
+<h1 class="text-center text-25 md:text-[40px] mb-8 md:mb-14 font-bold leading-normal">Payment Page</h1>
+<ul class="payment-list-link">
+  <li class="{{ if step >= 1 }}active{{ /if }}"><a href="/booking/cart"><span>01</span>Your Cart</a></li>
+  <li class="{{ if step >= 2 }}active{{ /if }}"><a href="/booking/contact"><span>02</span>Contact Details</a></li>
+  <li class="{{ if step >= 3 }}active{{ /if }}"><a href="/booking/payment"><span>03</span>Payment</a></li>
+  <li class="{{ if step >= 4 }}active{{ /if }}"><a href="/booking/complete"><span>04</span>Complete</a></li>
+</ul>

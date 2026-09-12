@@ -1,0 +1,11 @@
+<div class="md:max-w-[258px] w-full shrink-0 py-6 md:py-10 px-4 md:px-5 bg-white">
+  <ul class="dashboard-list">
+    <li class="{{ if current == 'dashboard' }}active{{ /if }}"><a href="/booking/dashboard"><span><img src="/assets/images/dashboard.svg" alt="dashboard"></span>Dashboard</a></li>
+    <li class="{{ if current == 'history' || current == 'detail' }}active{{ /if }}"><a href="/booking/history"><span><img src="/assets/images/data-blob.svg" alt="data-blob"></span>Booking history</a></li>
+    {{ if logged_in }}
+    <li><a href="{{ user:logout_url redirect='/login' }}"><span><img src="/assets/images/logout.svg" alt="logout"></span>Logout</a></li>
+    {{ else }}
+    <li><a href="/login"><span><img src="/assets/images/logout.svg" alt="logout"></span>Login</a></li>
+    {{ /if }}
+  </ul>
+</div>

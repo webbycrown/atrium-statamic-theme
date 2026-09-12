@@ -1,0 +1,23 @@
+{{ partial:inner-banner banner_title="Gallery" }}
+<section>
+  <div class="container">
+    <div class="atrium-gallery-grid" data-gallery-grid>
+      {{ collection:gallery sort="order:asc" }}
+      <div class="relative group{{ if count > 9 }} atrium-gallery-hide{{ /if }}" data-gallery-item>
+        <div class="atrium-gallery-tile after:w-full after:transition-all after:h-full after:absolute after:top-0 after:left-0 after:bg-dark-900 after:opacity-20 group-hover:after:opacity-40">
+          {{ if image }}
+          <img src="{{ image:url }}" alt="{{ title }}" loading="{{ if count > 9 }}lazy{{ else }}eager{{ /if }}" class="transition-all group-hover:scale-105 duration-300">
+          {{ /if }}
+        </div>
+      </div>
+      {{ /collection:gallery }}
+    </div>
+    <div class="mt-16 mb-10 text-center" data-gallery-sentinel>
+      <button type="button" class="btn btn-primary mx-auto" data-gallery-status>Load more</button>
+    </div>
+    <div class="mb-10 text-center">
+      <a href="/gallery/masonry" class="text-primary hover:underline">Masonry view</a>
+    </div>
+  </div>
+</section>
+{{ partial:gallery-scroll }}

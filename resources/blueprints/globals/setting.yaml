@@ -1,0 +1,51 @@
+title: Setting
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: favicon
+            field:
+              container: assets
+              max_files: 1
+              type: assets
+              display: Favicon
+          -
+            handle: logo
+            field:
+              container: assets
+              max_files: 1
+              type: assets
+              display: Logo
+          -
+            handle: white_logo
+            field:
+              container: assets
+              max_files: 1
+              type: assets
+              display: 'White Logo'
+          -
+            handle: header_select
+            field:
+              options:
+                - key: header
+                  value: Header
+              default: header
+              type: select
+              display: 'Header Select'
+          -
+            handle: footer_select
+            field:
+              options:
+                - key: footer
+                  value: Footer
+              default: footer
+              type: select
+              display: 'Footer Select'
+          -
+            handle: phone
+            field:
+              type: text
+              display: Phone

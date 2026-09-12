@@ -1,0 +1,70 @@
+tree:
+  -
+    entry: home
+  -
+    entry: home-v2
+  -
+    entry: home-v3
+  -
+    entry: about
+  -
+    entry: a1b2c3d4-1111-4e01-8f01-000000000002
+    children:
+      -
+        entry: destinations-v2
+  -
+    entry: a1b2c3d4-1111-4e01-8f01-000000000001
+    children:
+      -
+        entry: tours-list
+      -
+        entry: tours-grid
+  -
+    entry: a1b2c3d4-1111-4e01-8f01-000000000003
+    children:
+      -
+        entry: blog-grid
+      -
+        entry: blog-sidebar
+  -
+    entry: hotels-page
+  -
+    entry: team-page
+  -
+    entry: gallery-page
+    children:
+      -
+        entry: gallery-masonry
+  -
+    entry: portfolio-page
+  -
+    entry: faqs
+  -
+    entry: testimonials-page
+  -
+    entry: a1b2c3d4-1111-4e01-8f01-000000000004
+  -
+    entry: login
+  -
+    entry: register
+  -
+    entry: forgot-password
+  -
+    entry: reset-password
+  -
+    entry: booking
+    children:
+      -
+        entry: booking-cart
+      -
+        entry: booking-contact
+      -
+        entry: booking-payment
+      -
+        entry: booking-complete
+      -
+        entry: booking-dashboard
+      -
+        entry: booking-history
+      -
+        entry: booking-detail

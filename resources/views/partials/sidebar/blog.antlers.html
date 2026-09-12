@@ -1,0 +1,27 @@
+<div class="search-location bg-gray-200 border border-primary-800 rounded-1xl py-3.5 px-5 mb-9">
+  <h2 class="text-lg font-bold mb-4">Search</h2>
+  <form action="/blog" method="get">
+    <input type="text" name="q" value="{{ get:q }}" placeholder="Search here" class="form-control mb-3">
+    <button type="submit" class="btn btn-primary max-w-full w-full text-sm font-semibold">Search</button>
+  </form>
+</div>
+<div class="mb-9">
+  <h2 class="text-lg font-bold mb-6">Categories</h2>
+  <ul class="space-y-2">
+    {{ taxonomy:blog_category }}
+    <li><a href="/blog?category={{ slug }}" class="hover:text-primary-900">{{ title }}</a></li>
+    {{ /taxonomy:blog_category }}
+  </ul>
+</div>
+<div class="mb-9">
+  <h2 class="text-lg font-bold mb-6">Recent posts</h2>
+  {{ collection:blogs limit="4" sort="date:desc" }}
+  <div class="flex gap-3 mb-4">
+    <a href="{{ url }}" class="w-20 h-16 shrink-0 overflow-hidden rounded-md"><img src="{{ if image }}{{ image:url }}{{ else }}/assets/images/blog-img1.jpg{{ /if }}" alt="{{ title }}" class="w-full h-full object-cover"></a>
+    <div>
+      <h6 class="text-md mb-1 leading-normal"><a href="{{ url }}" class="hover:text-primary-900">{{ title }}</a></h6>
+      <span class="text-sm text-dark-800">{{ date format="M j, Y" }}</span>
+    </div>
+  </div>
+  {{ /collection:blogs }}
+</div>

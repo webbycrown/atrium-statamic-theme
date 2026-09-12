@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atrium banners — Statamic marketplace</title>
+  <style>
+    :root { --navy:#0E2A47; --terra:#E07A3D; --brass:#C9A36A; --cream:#F4EFE6; --muted:#b8b4b2; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Montserrat, Arial, sans-serif; background: #141211; color: #fff; }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 40px 24px 80px; }
+    .top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; align-items: flex-end; margin-bottom: 28px; padding-bottom: 24px; border-bottom: 3px solid var(--terra); }
+    .brand { font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--brass); margin: 0 0 8px; }
+    h1 { margin: 0; font-size: 36px; }
+    h2 { margin: 0; }
+    .lead { margin: 8px 0 0; color: var(--muted); }
+    .price { background: var(--terra); color: #fff; padding: 16px 22px; min-width: 160px; text-align: right; }
+    .price small { display: block; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+    .price strong { font-size: 32px; }
+    .domain {
+      background: var(--navy);
+      border: 1px solid #1d3d5c;
+      padding: 22px 24px;
+      margin-bottom: 28px;
+    }
+    .domain label { display: block; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--brass); margin-bottom: 8px; }
+    .domain a { color: #fff; font-size: 28px; font-weight: 700; text-decoration: none; word-break: break-all; }
+    .domain a:hover { color: var(--terra); }
+    .domain .also { margin: 10px 0 0; color: var(--muted); font-size: 14px; }
+    .domain .also a { color: var(--cream); font-size: inherit; font-weight: 600; }
+    .btn { display: inline-block; text-decoration: none; font-weight: 600; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; padding: 12px 18px; border: 2px solid var(--terra); color: var(--terra); }
+    .btn.fill { background: var(--terra); color: #fff; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+    .listing { background: #1f1c1b; border: 1px solid #333; padding: 20px; margin-bottom: 28px; }
+    .listing h3 { margin: 0 0 6px; font-size: 18px; }
+    .listing .sub { margin: 0 0 16px; color: var(--muted); font-size: 13px; }
+    .fields { display: grid; gap: 12px; }
+    .field { display: grid; grid-template-columns: 180px 1fr; gap: 12px; align-items: start; padding-bottom: 12px; border-bottom: 1px solid #2a2726; }
+    @media (max-width: 700px) { .field { grid-template-columns: 1fr; } }
+    .lab { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding-top: 6px; }
+    .val { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+    .val code { background: #141211; padding: 6px 8px; font-size: 13px; word-break: break-all; }
+    .hint { width: 100%; color: var(--muted); font-size: 12px; }
+    .copy { cursor: pointer; background: transparent; color: var(--terra); border: 1px solid var(--terra); font: inherit; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; padding: 6px 10px; }
+    .cats { display: flex; flex-wrap: wrap; gap: 6px; }
+    .cat { border: 1px solid #444; padding: 4px 8px; font-size: 12px; }
+    .cat.primary { border-color: var(--terra); color: var(--terra); }
+    .grid { display: grid; grid-template-columns: 1fr; gap: 22px; }
+    @media (min-width: 800px) { .grid.subs { grid-template-columns: 1fr 1fr; } }
+    .card { background: #1f1c1b; border: 1px solid #333; }
+    .card.main { grid-column: 1 / -1; }
+    .card.thumb { max-width: 360px; }
+    .card img { display: block; width: 100%; height: auto; }
+    .meta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; }
+    .meta h3 { margin: 0 0 4px; font-size: 17px; }
+    .meta p { margin: 0; color: var(--muted); font-size: 13px; }
+    .swatches { display: flex; gap: 8px; margin-top: 10px; }
+    .swatch { width: 22px; height: 22px; border: 1px solid rgba(255,255,255,.25); }
+    .note { margin-top: 36px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <p class="brand">Atrium · Statamic starter kit</p>
+        <h1>Banner details</h1>
+        <p class="lead">Event venue kit · navy #0E2A47 · terracotta #E07A3D · brass #C9A36A</p>
+        <div class="swatches">
+          <i class="swatch" style="background:#0E2A47"></i>
+          <i class="swatch" style="background:#E07A3D"></i>
+          <i class="swatch" style="background:#C9A36A"></i>
+        </div>
+        <div class="actions">
+          <a class="btn fill" href="/assets/images/marketplace/atrium-banners.zip" download>Download all (ZIP)</a>
+          <a class="btn" href="https://atrium-statamic.webbydemo.in/" target="_blank" rel="noopener">Open live demo</a>
+        </div>
+      </div>
+      <div class="price"><small>Theme price</small><strong>$99</strong><small>per site</small></div>
+    </div>
+
+    <div class="domain">
+      <label>Live domain</label>
+      <a href="https://atrium-statamic.webbydemo.in/">https://atrium-statamic.webbydemo.in/</a>
+      <p class="also">Local demo: <a href="http://192.168.29.45:8018/">http://192.168.29.45:8018/</a></p>
+    </div>
+
+    <div class="listing">
+      <h3>Statamic Marketplace listing</h3>
+      <p class="sub">Fill these on the product form. First category is primary. Screenshots must be 1200 × 800. Thumbnail must be square, at least 1024 × 1024.</p>
+      <p style="margin:0 0 16px"><button type="button" class="copy" data-copy="Name: Atrium Event Venues
+Slug: atrium
+Marketplace URL: https://statamic.com/starter-kits/webbycrown/atrium
+Categories: Small Business, Portfolio, Landing Page (first is primary)
+License: Paid
+Price: 99
+Summary: Event venue starter kit with halls, city catalogs, event packages, gallery, and a booking inquiry flow.
+Main content: Use README.md
+Documentation: Part of the Main Content
+Thumbnail: 00-atrium-thumb.jpg (1024x1024)
+Screenshots: 1200x800 (see gallery)
+GitHub Repo: webbycrown/atrium-statamic-theme
+Composer Package: webbycrown/atrium-statamic-theme
+Live Preview URL: https://atrium-statamic.webbydemo.in/
+Demo/Promo Video URL: 
+Official support: Yes
+Support URL: https://github.com/webbycrown/atrium-statamic-theme/issues
+Minimum Git Version: 1.0.0
+End of Life: 
+Maintained State: Actively Maintained
+Abandon: No">Copy all fields</button></p>
+      <div class="fields">
+        <div class="field">
+          <div class="lab">Name</div>
+          <div class="val">
+            <code>Atrium Event Venues</code>
+            <button type="button" class="copy" data-copy="Atrium Event Venues">Copy</button>
+          </div>
+        </div>
+        <div class="field">
+          <div class="lab">Slug</div>
+          <div class="val">
+            <code>atrium</code>
+            <button type="button" class="copy" data-copy="atrium">Copy</button>
+          </div>
+        </div>
+        <div class="field">
+          <div class="lab">Marketplace URL</div>
+          <div class="val">
+            <code>https://statamic.com/starter-kits/webbycrown/atrium</code>
+            <button type="button" class="copy" data-copy="https://statamic.com/starter-kits/webbycrown/atrium">Copy</button>
+          </div>
+        </div>
+        <div class="field">
+          <div class="lab">Categories</div>
+          <div class="val">
+            <div class="cats"><span class="cat primary">Small Business · primary</span> <span class="cat">Portfolio</span> <span class="cat">Landing Page</span></div>
+          </div>
+        </div>
+        <div class="field">
+          <div class="lab">License / Price</div>
+          <div class="val">
+            <code>Paid</code>
+            <code>99</code>
+            <button type="button" class="copy" data-copy="99">Copy</button>
+          </div>
+        </div>
+        <div class="field">
+          <div class="lab">Summary</div>
+          <div class="val">
+            <code>Event venue starter kit with halls, city catalogs, event packages, gallery, and a booking inquiry flow.</code>
+            <button type="button" class="copy" data-copy="Event venue starter kit with halls, city catalogs, event packages, gallery, and a booking inquiry flow.">Copy</button>
+          </div>
+        </div>
+        <div class="field">
+          <div class="lab">GitHub / Composer</div>
+          <div class="val">
+            <code>webbycrown/atrium-statamic-theme</code>
+            <button type="button" class="copy" data-copy="webbycrown/atrium-statamic-theme">Copy</button>
+          </div>
+        </div>
+        <div class="field">
+          <div class="lab">Live Preview URL</div>
+          <div class="val">
+            <code>https://atrium-statamic.webbydemo.in/</code>
+            <button type="button" class="copy" data-copy="https://atrium-statamic.webbydemo.in/">Copy</button>
+            <div class="hint">Public domain. Local fallback: http://192.168.29.45:8018/</div>
+          </div>
+        </div>
+        <div class="field">
+          <div class="lab">Support URL</div>
+          <div class="val">
+            <code>https://github.com/webbycrown/atrium-statamic-theme/issues</code>
+            <button type="button" class="copy" data-copy="https://github.com/webbycrown/atrium-statamic-theme/issues">Copy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <article class="card main">
+        <img src="/assets/images/marketplace/01-atrium-main.jpg" alt="Atrium main banner">
+        <div class="meta">
+          <div>
+            <h3>Main banner</h3>
+            <p>1600 × 900 · Featured marketplace image</p>
+          </div>
+          <a class="btn" href="/assets/images/marketplace/01-atrium-main.jpg" download="01-atrium-main.jpg">Download</a>
+        </div>
+      </article>
+      <article class="card thumb">
+        <img src="/assets/images/marketplace/00-atrium-thumb.jpg" alt="Atrium thumbnail">
+        <div class="meta">
+          <div>
+            <h3>Thumbnail</h3>
+            <p>1024 × 1024</p>
+          </div>
+          <a class="btn" href="/assets/images/marketplace/00-atrium-thumb.jpg" download="00-atrium-thumb.jpg">Download</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="grid subs" style="margin-top:28px">
+      <article class="card">
+        <img src="/assets/images/marketplace/02-atrium-home.jpg" alt="Home banner">
+        <div class="meta"><div><h3>Home</h3><p>1200 × 800</p></div>
+          <a class="btn" href="/assets/images/marketplace/02-atrium-home.jpg" download>Download</a></div>
+      </article>
+      <article class="card">
+        <img src="/assets/images/marketplace/03-atrium-events.jpg" alt="Events banner">
+        <div class="meta"><div><h3>Events</h3><p>1200 × 800</p></div>
+          <a class="btn" href="/assets/images/marketplace/03-atrium-events.jpg" download>Download</a></div>
+      </article>
+      <article class="card">
+        <img src="/assets/images/marketplace/04-atrium-venues.jpg" alt="Venues banner">
+        <div class="meta"><div><h3>Venues</h3><p>1200 × 800</p></div>
+          <a class="btn" href="/assets/images/marketplace/04-atrium-venues.jpg" download>Download</a></div>
+      </article>
+      <article class="card">
+        <img src="/assets/images/marketplace/05-atrium-cities.jpg" alt="Cities banner">
+        <div class="meta"><div><h3>Cities</h3><p>1200 × 800</p></div>
+          <a class="btn" href="/assets/images/marketplace/05-atrium-cities.jpg" download>Download</a></div>
+      </article>
+      <article class="card">
+        <img src="/assets/images/marketplace/06-atrium-gallery.jpg" alt="Gallery banner">
+        <div class="meta"><div><h3>Gallery</h3><p>1200 × 800</p></div>
+          <a class="btn" href="/assets/images/marketplace/06-atrium-gallery.jpg" download>Download</a></div>
+      </article>
+      <article class="card">
+        <img src="/assets/images/marketplace/07-atrium-booking.jpg" alt="Booking banner">
+        <div class="meta"><div><h3>Booking</h3><p>1200 × 800</p></div>
+          <a class="btn" href="/assets/images/marketplace/07-atrium-booking.jpg" download>Download</a></div>
+      </article>
+    </div>
+
+    <p class="note">Use the main file first on the Statamic listing, then the 1200×800 set. Domain printed on every banner: atrium-statamic.webbydemo.in. Theme price is $99 per site.</p>
+  </div>
+  <script>
+    document.querySelectorAll('.copy').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        navigator.clipboard.writeText(btn.getAttribute('data-copy') || '').then(function () {
+          var old = btn.textContent;
+          btn.textContent = 'Copied';
+          setTimeout(function () { btn.textContent = old; }, 1200);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

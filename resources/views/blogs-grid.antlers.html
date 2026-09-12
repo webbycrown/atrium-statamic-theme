@@ -1,0 +1,31 @@
+{{ partial:inner-banner banner_title="Blog" }}
+<section>
+  <div class="container">
+    {{ partial:layout-switch }}
+    <div class="text-center mb-8 md:mb-12">
+      <h2>Blog grid full view</h2>
+    </div>
+    {{ collection:blogs sort="date:desc" paginate="9" as="posts" }}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+      {{ posts }}
+      <div class="relative group">
+        <div class="relative w-full overflow-hidden before:pt-[75%] before:block rounded-xl">
+          <div class="absolute top-3 right-3 z-1">
+            <a href="{{ url }}" class="btn btn-primary btn-md text-sm">Read more</a>
+          </div>
+          <a href="{{ url }}">
+            <img src="{{ if image }}{{ image:url }}{{ else }}/assets/images/blog-img1.jpg{{ /if }}" alt="{{ title }}" class="transition-all group-hover:scale-105 absolute top-0 left-0 w-full h-full object-cover duration-300">
+          </a>
+        </div>
+        <div class="py-5">
+          <h3 class="text-xl xl:leading-normal mb-2 hover:text-primary-900"><a href="{{ url }}">{{ title }}</a></h3>
+          <span class="text-sm text-dark-800 mb-2 block">{{ date format="M j, Y" }}</span>
+          {{ if excerpt }}<p class="text-md leading-normal mb-0 text-dark-800">{{ excerpt }}</p>{{ /if }}
+        </div>
+      </div>
+      {{ /posts }}
+    </div>
+    {{ partial:pagination centered="true" }}
+    {{ /collection:blogs }}
+  </div>
+</section>

@@ -1,0 +1,67 @@
+{{ partial:inner-banner :banner_title="title" }}
+<section>
+  <div class="container">
+    <h2 class="mb-5">{{ title }}</h2>
+    {{ if location }}<div class="text-md md:text-lg leading-normal mb-6 flex items-center gap-2"><i class="fa-solid fa-location-dot text-primary-900"></i> {{ location }}</div>{{ /if }}
+    {{ image }}
+    <div class="mb-8">
+      <img src="{{ url }}" alt="{{ title }}">
+    </div>
+    {{ /image }}
+    <div class="lg:flex">
+      <div class="w-full lg:w-[calc(100%-300px)] lg:pr-12">
+        <div class="flex flex-wrap items-center justify-between mb-8">
+          <h3 class="text-1xl lg:text-25 mb-0 leading-normal">{{ title }}</h3>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-5 border-b border-primary-800 pb-5 mb-7">
+          {{ if duration }}
+          <div class="flex gap-2 items-start">
+            <img src="/assets/images/clock-icon.svg" alt="" width="20">
+            <p class="m-0 text-md text-dark-900">Event type: <span class="block">{{ duration }}</span></p>
+          </div>
+          {{ /if }}
+          {{ if group_size }}
+          <div class="flex gap-2 items-start">
+            <img src="/assets/images/group-user-icon.svg" alt="" width="22">
+            <p class="m-0 text-md text-dark-900">Guest count: <span class="block">{{ group_size }}</span></p>
+          </div>
+          {{ /if }}
+        </div>
+        {{ if overview }}
+        <div class="border-b border-primary-800 pb-5 mb-7">
+          <h4 class="text-xl">Overview</h4>
+          {{ overview }}
+        </div>
+        {{ /if }}
+        {{ if included }}
+        <div class="mb-10">
+          <h4 class="text-xl">The package</h4>
+          <ul class="leading-[38px] list">
+            {{ included }}
+            <li>{{ text }}</li>
+            {{ /included }}
+          </ul>
+        </div>
+        {{ /if }}
+        {{ if itinerary }}
+        <div class="mb-10">
+          <h4 class="text-xl md:text-25">Event plan</h4>
+          <div class="accordion">
+            {{ itinerary }}
+            <div class="accordion-list border border-primary-800 rounded-1xl bg-gray-400 mb-5">
+              <h5 class="py-4 px-6 m-0 text-lg font-normal"><strong>{{ day }}</strong> {{ title }}</h5>
+              <div class="pt-3 pb-0 px-5 border-t border-primary-800">
+                <p class="leading-1xl">{{ text }}</p>
+              </div>
+            </div>
+            {{ /itinerary }}
+          </div>
+        </div>
+        {{ /if }}
+      </div>
+      <div class="right-sidebar lg:max-w-[300px] w-full shrink-0">
+        {{ partial:tour-inquiry }}
+      </div>
+    </div>
+  </div>
+</section>

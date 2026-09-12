@@ -1,0 +1,7 @@
+title: Events
+template: tours/show
+route: '/events/{slug}'
+revisions: false
+sort_dir: asc
+taxonomies:
+  - tour_type

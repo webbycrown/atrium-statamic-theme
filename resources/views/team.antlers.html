@@ -1,0 +1,10 @@
+{{ partial:inner-banner banner_title="Team" }}
+<section>
+  <div class="container">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+      {{ collection:teams }}
+        {{ partial:cards/team }}
+      {{ /collection:teams }}
+    </div>
+  </div>
+</section>

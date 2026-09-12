@@ -1,0 +1,45 @@
+{{ partial:inner-banner banner_title="Portfolio" }}
+<section class="atrium-portfolio-section">
+  <div class="container">
+    <ul class="portfolio-list flex items-center justify-center bg-primary-800 rounded-md p-1.5 md:gap-4 mb-10" id="filters">
+      <li class="active" data-filter="*"><a href="javascript:;" class="block py-2 px-3 md:px-7 rounded-md text-white bg-primary-900">All</a></li>
+      {{ taxonomy:portfolio_category }}
+      <li data-filter=".{{ slug }}"><a href="javascript:;" class="block py-2 px-3 md:px-7 rounded-md text-dark-900 hover:bg-primary-900 hover:text-white">{{ title }}</a></li>
+      {{ /taxonomy:portfolio_category }}
+    </ul>
+    <div class="atrium-portfolio-grid">
+      {{ collection:portfolio }}
+      <div class="atrium-portfolio-item grid-item {{ portfolio_category:slug }}">
+        <div class="atrium-portfolio-media group">
+          <img src="{{ if image }}{{ image:url }}{{ else }}/assets/images/event-venue-1.jpg{{ /if }}" alt="{{ title }}" loading="lazy">
+        </div>
+        <div class="atrium-portfolio-copy">
+          <h3>{{ title }}</h3>
+          {{ if subtitle }}<span>{{ subtitle }}</span>{{ /if }}
+        </div>
+      </div>
+      {{ /collection:portfolio }}
+    </div>
+  </div>
+</section>
+<script>
+(function () {
+  function bootPortfolioFilter() {
+    var filters = document.querySelectorAll('#filters [data-filter]');
+    var items = document.querySelectorAll('.atrium-portfolio-item');
+    if (!filters.length || !items.length) return;
+    filters.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        filters.forEach(function (el) { el.classList.remove('active'); });
+        btn.classList.add('active');
+        var key = (btn.getAttribute('data-filter') || '*').replace('.', '');
+        items.forEach(function (item) {
+          item.classList.toggle('is-hidden', key !== '*' && !item.classList.contains(key));
+        });
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bootPortfolioFilter);
+  else bootPortfolioFilter();
+})();
+</script>

@@ -1,0 +1,33 @@
+{{ partial:inner-banner :banner_title="title" }}
+<section>
+  <div class="container">
+    <h2 class="mb-5">{{ title }}</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-5 mb-8">
+      {{ if price }}<div class="border border-primary-800 bg-[#FBFAFF] rounded-xl p-5"><span class="block text-sm">Price</span><strong>${{ price }}</strong></div>{{ /if }}
+      {{ if duration }}<div class="border border-primary-800 bg-[#FBFAFF] rounded-xl p-5"><span class="block text-sm">Event type</span><strong>{{ duration }}</strong></div>{{ /if }}
+      {{ if location }}<div class="border border-primary-800 bg-[#FBFAFF] rounded-xl p-5"><span class="block text-sm">Location</span><strong>{{ location }}</strong></div>{{ /if }}
+      {{ if group_size }}<div class="border border-primary-800 bg-[#FBFAFF] rounded-xl p-5"><span class="block text-sm">Guests</span><strong>{{ group_size }}</strong></div>{{ /if }}
+    </div>
+    {{ image }}<div class="mb-8"><img src="{{ url }}" alt="{{ title }}"></div>{{ /image }}
+    <div class="lg:flex">
+      <div class="w-full lg:w-[calc(100%-300px)] lg:pr-12">
+        {{ if overview }}<div class="mb-7"><h4 class="text-xl">Overview</h4>{{ overview }}</div>{{ /if }}
+        {{ if included }}
+        <div class="mb-10">
+          <h4 class="text-xl">The package</h4>
+          <ul class="leading-[38px] list">{{ included }}<li>{{ text }}</li>{{ /included }}</ul>
+        </div>
+        {{ /if }}
+        <h4 class="text-xl mb-6">Related events</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {{ collection:tours limit="3" }}
+            {{ partial:cards/tour }}
+          {{ /collection:tours }}
+        </div>
+      </div>
+      <div class="right-sidebar lg:max-w-[300px] w-full shrink-0">
+        {{ partial:tour-inquiry }}
+      </div>
+    </div>
+  </div>
+</section>

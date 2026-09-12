@@ -1,0 +1,40 @@
+<div class="bg-gray-200 mb-10 md:mb-14 py-10 md:py-11">
+  <div class="container">
+    {{ partial:booking/stepper step="2" }}
+    {{ if booking_cart:empty }}
+    <p>Your cart is empty. <a href="/events" class="text-primary-900 underline">Browse events</a></p>
+    {{ else }}
+    <div class="flex flex-wrap">
+      <div class="w-full md:w-2/3 mb-8 md:mb-0 md:pr-8">
+        <div class="shadow-box-3 w-full rounded-xl py-5 md:py-8 px-5 md:px-7 bg-white">
+          <h2 class="text-xl md:text-25 mb-6">Contact Details</h2>
+          {{ if booking_errors }}
+          <ul class="mb-4 text-sm text-primary-900">
+            {{ booking_errors }}<li>{{ value }}</li>{{ /booking_errors }}
+          </ul>
+          {{ /if }}
+          <form class="form contact-details-form" action="/booking/contact" method="post">
+            <input type="hidden" name="_token" value="{{ csrf_token }}">
+            <div class="flex flex-wrap md:-mx-2">
+              <div class="md:px-2 w-full md:w-1/2 mb-3"><input type="text" name="first_name" value="{{ booking_cart:contact:first_name ?? user:first_name }}" placeholder="First name" class="form-control" required></div>
+              <div class="md:px-2 w-full md:w-1/2 mb-3"><input type="text" name="last_name" value="{{ booking_cart:contact:last_name ?? user:last_name }}" placeholder="Last name" class="form-control" required></div>
+              <div class="md:px-2 w-full md:w-1/2 mb-3"><input type="email" name="email" value="{{ booking_cart:contact:email ?? user:email }}" placeholder="Email address" class="form-control" required></div>
+              <div class="md:px-2 w-full md:w-1/2 mb-3"><input type="text" name="phone" value="{{ booking_cart:contact:phone }}" placeholder="Phone" class="form-control" required></div>
+              <div class="md:px-2 w-full mb-3"><input type="text" name="travel_date" value="{{ booking_cart:contact:travel_date }}" placeholder="Event date" class="form-control" required></div>
+              <div class="md:px-2 w-full mb-3"><textarea class="form-control" name="address" placeholder="Full Address" required>{{ booking_cart:contact:address }}</textarea></div>
+              <div class="md:px-2 w-full"><button type="submit" class="btn btn-primary">Next step</button></div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="w-full md:w-1/3">
+        {{ booking_cart:items }}
+        <h3 class="text-xl mb-3 md:text-25">{{ title }}</h3>
+        <p class="mb-2 text-md">{{ persons }} × ${{ price }}</p>
+        {{ /booking_cart:items }}
+        <div class="flex items-center justify-between text-lg py-6"><strong>Total Price</strong><strong class="text-primary-900">${{ booking_cart:total_formatted }}</strong></div>
+      </div>
+    </div>
+    {{ /if }}
+  </div>
+</div>

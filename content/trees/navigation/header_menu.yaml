@@ -1,0 +1,110 @@
+tree:
+  -
+    id: nav-home
+    title: Home
+    url: /
+  -
+    id: nav-about
+    title: About
+    url: /about
+  -
+    id: nav-destination
+    title: City
+    url: /cities
+  -
+    id: nav-tour
+    title: Event
+    url: /events
+  -
+    id: nav-blog
+    title: Blog
+    url: /blog
+  -
+    id: nav-hotels
+    title: Venues
+    url: /venues
+  -
+    id: nav-pages
+    title: Pages
+    url: '#'
+    children:
+      -
+        id: nav-home-v1
+        title: 'Home v1'
+        url: /
+      -
+        id: nav-home-v2
+        title: 'Home v2'
+        url: /home-v2
+      -
+        id: nav-home-v3
+        title: 'Home v3'
+        url: /home-v3
+      -
+        id: nav-about-2
+        title: About
+        url: /about
+      -
+        id: nav-faqs
+        title: Faqs
+        url: /faqs
+      -
+        id: nav-testimonials
+        title: Testimonial
+        url: /testimonials
+      -
+        id: nav-team
+        title: Team
+        url: /team
+      -
+        id: nav-tours-list
+        title: 'Event list'
+        url: /events/list
+      -
+        id: nav-tours-grid
+        title: 'Event grid'
+        url: /events/grid
+      -
+        id: nav-dest-v2
+        title: 'Cities v2'
+        url: /cities/v2
+      -
+        id: nav-blog-grid
+        title: 'Blog grid'
+        url: /blog/grid
+      -
+        id: nav-blog-sidebar
+        title: 'Blog sidebar'
+        url: /blog/sidebar
+      -
+        id: nav-gallery
+        title: Gallery
+        url: /gallery
+      -
+        id: nav-gallery-masonry
+        title: 'Gallery masonry'
+        url: /gallery/masonry
+      -
+        id: nav-portfolio
+        title: Portfolio
+        url: /portfolio
+      -
+        id: nav-booking-cart
+        title: Cart
+        url: /booking/cart
+      -
+        id: nav-dashboard
+        title: Dashboard
+        url: /booking/dashboard
+      -
+        id: nav-login
+        title: Login
+        url: /login
+      -
+        id: nav-register
+        title: Register
+        url: /register
+  -
+    id: nav-contact
+    title: Contact
+    url: /contact

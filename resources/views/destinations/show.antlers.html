@@ -1,0 +1,121 @@
+{{ partial:inner-banner :banner_title="title" }}
+<section class="destination-detail py-14">
+  <div class="container">
+    <h2 class="text-md xl:text-4xl xl:leading-normal mb-7 flex items-center gap-2">
+      <i class="fa-solid fa-location-dot text-primary-900"></i> {{ title }}
+    </h2>
+    {{ image }}
+    <div class="mb-8 rounded-2xl overflow-hidden">
+      <img src="{{ url }}" alt="{{ title }}" class="w-full">
+    </div>
+    {{ /image }}
+    {{ if description }}
+    <div class="leading-1xl mb-6">{{ description }}</div>
+    {{ /if }}
+
+    {{ if highlight_heading || highlight_text }}
+    <h3 class="text-lg md:text-3xl md:mt-10">{{ highlight_heading ?? 'Good to know' }}</h3>
+    {{ if highlight_text }}<div class="leading-1xl">{{ highlight_text }}</div>{{ /if }}
+    {{ /if }}
+
+    <div class="md:mt-10" x-data="{ tab: 'tab1' }">
+      <ul class="flex flex-wrap items-center bg-primary-800 rounded-md p-1.5 md:gap-4 mb-10">
+        <li><a href="javascript:;" class="block py-2 px-3 md:px-7 rounded-md text-dark-900 hover:bg-primary-900 hover:text-white" :class="{ 'bg-primary-900 text-white': tab == 'tab1'}" @click.prevent="tab = 'tab1'">Spaces</a></li>
+        <li><a href="javascript:;" class="block py-2 px-3 md:px-7 rounded-md text-dark-900 hover:bg-primary-900 hover:text-white" :class="{ 'bg-primary-900 text-white': tab == 'tab2'}" @click.prevent="tab = 'tab2'">Access</a></li>
+        <li><a href="javascript:;" class="block py-2 px-3 md:px-7 rounded-md text-dark-900 hover:bg-primary-900 hover:text-white" :class="{ 'bg-primary-900 text-white': tab == 'tab3'}" @click.prevent="tab = 'tab3'">Venues</a></li>
+        <li><a href="javascript:;" class="block py-2 px-3 md:px-7 rounded-md text-dark-900 hover:bg-primary-900 hover:text-white" :class="{ 'bg-primary-900 text-white': tab == 'tab4'}" @click.prevent="tab = 'tab4'">Events</a></li>
+      </ul>
+
+      <div class="mb-10" x-show="tab == 'tab1'">
+        <h3 class="text-lg md:text-3xl">Spaces</h3>
+        {{ if activities }}
+        <div class="leading-1xl">{{ activities }}</div>
+        {{ else }}
+        <p>Ballrooms, conference floors, and banquet rooms with kitchens and load-in already in place. We send halls that match the guest count and the night you pictured.</p>
+        {{ /if }}
+      </div>
+
+      <div class="mb-10" x-show="tab == 'tab2'">
+        {{ if flights }}
+          {{ flights }}
+          <div class="flex flex-wrap md:flex-nowrap border border-primary-800 bg-primary-800/20 rounded-xl mb-5">
+            <div class="w-full py-6 px-6 grid items-center justify-center md:max-w-[118px] shrink-0 border-b md:border-b border-primary-800">
+              <img src="/assets/images/airplane-helix.svg" alt="" class="w-12 h-12 mx-auto">
+            </div>
+            <div class="w-1/2 md:w-full py-3 md:py-6 px-3 md:px-6 grid items-center md:border-l border-primary-800">
+              <h3 class="text-md md:text-lg mb-2 leading-normal">Name</h3>
+              <span class="block text-dark-800 text-md md:text-lg">{{ route_name }}</span>
+            </div>
+            <div class="w-1/2 md:w-full py-3 md:py-6 px-3 md:px-6 grid items-center border-l border-primary-800">
+              <h3 class="text-md md:text-lg mb-2 leading-normal">Carrier</h3>
+              <span class="block text-dark-800 text-md md:text-lg">{{ flight_name }}</span>
+            </div>
+            <div class="w-1/2 md:w-full py-3 md:py-6 px-3 md:px-6 grid items-center md:border-l border-primary-800">
+              <h3 class="text-md md:text-lg mb-2 leading-normal">Distance</h3>
+              <span class="block text-dark-800 text-md md:text-lg">{{ distance }}</span>
+            </div>
+            <div class="w-1/2 md:w-full py-3 md:py-6 px-3 md:px-6 grid items-center border-l border-primary-800">
+              <h3 class="text-md md:text-lg mb-2 leading-normal">Depart Date</h3>
+              <span class="block text-dark-800 text-md md:text-lg">{{ depart_date }}</span>
+            </div>
+            <div class="w-1/2 md:w-full py-3 md:py-6 px-3 md:px-6 grid items-center border-r md:border-r-0 md:border-l border-primary-800">
+              <h3 class="text-md md:text-lg mb-2 leading-normal">Return Date</h3>
+              <span class="block text-dark-800 text-md md:text-lg">{{ return_date }}</span>
+            </div>
+          </div>
+          {{ /flights }}
+        {{ else }}
+        <p>Guest arrival corridors are confirmed after you inquire. We usually book daytime landings so the first site visit still has light.</p>
+        {{ /if }}
+      </div>
+
+      <div class="mb-10" x-show="tab == 'tab3'">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {{ if related_hotels }}
+            {{ related_hotels }}
+              {{ partial:cards/hotel }}
+            {{ /related_hotels }}
+          {{ else }}
+            {{ collection:hotels limit="3" }}
+              {{ partial:cards/hotel }}
+            {{ /collection:hotels }}
+          {{ /if }}
+        </div>
+      </div>
+
+      <div class="mb-10" x-show="tab == 'tab4'">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
+          {{ if related_tours }}
+            {{ related_tours }}
+              {{ partial:cards/tour-list }}
+            {{ /related_tours }}
+          {{ else }}
+            {{ collection:tours :destination:is="id" }}
+              {{ partial:cards/tour-list }}
+            {{ /collection:tours }}
+          {{ /if }}
+        </div>
+      </div>
+    </div>
+
+    {{ if closing_text }}
+    <div class="leading-1xl">{{ closing_text }}</div>
+    {{ /if }}
+
+    <h3 class="text-lg md:text-3xl mt-10 mb-6">Events in {{ title }}</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
+      {{ if related_tours }}
+        {{ related_tours }}
+          {{ partial:cards/tour-list }}
+        {{ /related_tours }}
+      {{ else }}
+        {{ collection:tours :destination:is="id" }}
+          {{ partial:cards/tour-list }}
+        {{ /collection:tours }}
+      {{ /if }}
+    </div>
+    <div class="mt-10 text-center">
+      <a href="/events?destination={{ slug }}" class="btn btn-primary">View all {{ title }} events</a>
+    </div>
+  </div>
+</section>

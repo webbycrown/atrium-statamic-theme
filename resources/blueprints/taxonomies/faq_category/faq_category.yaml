@@ -1,0 +1,13 @@
+title: 'FAQ Category'
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field: { type: text, required: true }
+          -
+            handle: slug
+            field: { type: slug }

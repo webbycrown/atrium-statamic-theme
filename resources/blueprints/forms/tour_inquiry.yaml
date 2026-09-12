@@ -1,0 +1,52 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: tour
+            field:
+              type: text
+              display: Event
+          -
+            handle: name
+            field:
+              type: text
+              display: Name
+              validate:
+                - required
+          -
+            handle: email
+            field:
+              type: text
+              display: Email
+              validate:
+                - required
+                - email
+          -
+            handle: phone
+            field:
+              type: text
+              display: Phone
+          -
+            handle: travel_date
+            field:
+              type: text
+              display: 'Travel Date'
+              validate:
+                - required
+          -
+            handle: adults
+            field:
+              type: text
+              display: Adults
+              validate:
+                - required
+          -
+            handle: message
+            field:
+              type: textarea
+              display: Message
+              validate:
+                - required

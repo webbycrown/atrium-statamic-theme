@@ -1,0 +1,41 @@
+{{ partial:inner-banner :banner_title="title" }}
+<section>
+  <div class="container">
+    <h2 class="mb-5">{{ title }}</h2>
+    {{ if location }}<div class="text-md md:text-lg leading-normal mb-6 flex items-center gap-2"><i class="fa-solid fa-location-dot text-primary-900"></i> {{ location }}</div>{{ /if }}
+    {{ image }}<div class="mb-8"><img src="{{ url }}" alt="{{ title }}"></div>{{ /image }}
+    <div class="lg:flex">
+      <div class="w-full lg:w-[calc(100%-340px)] lg:pr-12" x-data="{ tab: 'detail' }">
+        <ul class="flex flex-wrap gap-4 mb-8 border-b border-primary-800 pb-3">
+          <li><button type="button" class="font-semibold" :class="tab==='detail' ? 'text-primary-900' : ''" @click="tab='detail'">Detail</button></li>
+          <li><button type="button" class="font-semibold" :class="tab==='itinerary' ? 'text-primary-900' : ''" @click="tab='itinerary'">Event plan</button></li>
+        </ul>
+        <div x-show="tab==='detail'">
+          {{ if overview }}<div class="border-b border-primary-800 pb-5 mb-7"><h4 class="text-xl">Overview</h4>{{ overview }}</div>{{ /if }}
+          {{ if included }}
+          <div class="mb-10">
+            <h4 class="text-xl">The package</h4>
+            <ul class="leading-[38px] list">{{ included }}<li>{{ text }}</li>{{ /included }}</ul>
+          </div>
+          {{ /if }}
+        </div>
+        <div x-show="tab==='itinerary'">
+          {{ if itinerary }}
+          <div class="accordion">
+            {{ itinerary }}
+            <div class="accordion-list border border-primary-800 rounded-1xl bg-gray-400 mb-5">
+              <h5 class="py-4 px-6 m-0 text-lg font-normal"><strong>{{ day }}</strong> {{ title }}</h5>
+              <div class="pt-3 pb-0 px-5 border-t border-primary-800"><p class="leading-1xl">{{ text }}</p></div>
+            </div>
+            {{ /itinerary }}
+          </div>
+          {{ /if }}
+        </div>
+      </div>
+      <div class="right-sidebar lg:max-w-[340px] w-full shrink-0">
+        {{ partial:tour-inquiry }}
+        {{ partial:sidebar/tour-filters }}
+      </div>
+    </div>
+  </div>
+</section>

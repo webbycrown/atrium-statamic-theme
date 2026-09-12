@@ -1,0 +1,4 @@
+title: Venues
+template: hotels/show
+route: '/venues/{slug}'
+revisions: false

@@ -1,0 +1,73 @@
+{{ partial:inner-banner :banner_title="title" }}
+<section>
+  <div class="container">
+    <div class="border-b border-gray-300 mb-8">
+      <h2 class="mb-2">{{ title }}</h2>
+      <div class="flex justify-between flex-wrap items-center mb-6">
+        {{ if address }}<p class="flex flex-wrap gap-3 mb-0"><span class="flex items-start"><img src="/assets/images/map-marker-line.svg" alt=""> {{ address }}</span></p>{{ /if }}
+        {{ if price }}<div class="text-dark-900 text-25 font-bold pt-3">${{ price }}</div>{{ /if }}
+      </div>
+    </div>
+    <div class="mb-6 md:mb-10 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
+      {{ if gallery }}
+        {{ gallery }}
+        <div class="rounded-1xl overflow-hidden before:block before:pt-[66%] relative {{ if index == 0 }}col-span-2 md:col-span-2 md:row-span-2{{ /if }}">
+          <img src="{{ url }}" alt="{{ title }}" class="absolute top-0 left-0 w-full h-full object-cover">
+        </div>
+        {{ /gallery }}
+      {{ elseif image }}
+        <div class="rounded-1xl overflow-hidden before:block before:pt-[66%] relative col-span-2">
+          <img src="{{ image:url }}" alt="{{ title }}" class="absolute top-0 left-0 w-full h-full object-cover">
+        </div>
+      {{ /if }}
+    </div>
+    {{ if overview }}
+    <div class="mb-7 md:mb-10">
+      <h4 class="text-xl md:text-25 md:text-3xl mb-3 md:mb-8">Overview</h4>
+      {{ overview }}
+    </div>
+    {{ /if }}
+    {{ if facilities }}
+    <div class="mb-7 md:mb-14 max-w-[900px]">
+      <h4 class="text-xl md:text-25 md:text-3xl mb-3 md:mb-8">Most Popular Facilities</h4>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-5 text-dark-800">
+        {{ facilities }}
+        <li class="flex items-center gap-3"><img src="{{ icon ?? '/assets/images/wifi.svg' }}" alt=""> {{ text }}</li>
+        {{ /facilities }}
+      </ul>
+    </div>
+    {{ /if }}
+    {{ if rooms }}
+    <div class="mb-7 md:mb-10">
+      <h4 class="text-xl md:text-25 md:text-3xl mb-3 md:mb-8">Available Rooms</h4>
+      {{ rooms }}
+      <div class="bg-primary-700 border border-primary-800 sm:p-5 rounded-xl mb-6">
+        <h3 class="text-lg mb-0 p-4 sm:p-0">{{ name }}</h3>
+        <div class="flex items-center justify-between px-4 pb-4">
+          {{ if price }}<strong class="text-primary-900">${{ price }}</strong>{{ /if }}
+          <form action="/booking/cart/add" method="post">
+            <input type="hidden" name="_token" value="{{ csrf_token }}">
+            <input type="hidden" name="type" value="hotel">
+            <input type="hidden" name="id" value="{{ page:id }}">
+            <input type="hidden" name="label" value="{{ name }}">
+            <input type="hidden" name="price" value="{{ price }}">
+            <input type="hidden" name="persons" value="1">
+            <button type="submit" class="btn btn-primary">Book now</button>
+          </form>
+        </div>
+      </div>
+      {{ /rooms }}
+    </div>
+    {{ else }}
+    {{ if price }}
+    <form action="/booking/cart/add" method="post" class="mb-10">
+      <input type="hidden" name="_token" value="{{ csrf_token }}">
+      <input type="hidden" name="type" value="hotel">
+      <input type="hidden" name="id" value="{{ id }}">
+      <input type="hidden" name="persons" value="1">
+      <button type="submit" class="btn btn-primary">Book now</button>
+    </form>
+    {{ /if }}
+    {{ /if }}
+  </div>
+</section>

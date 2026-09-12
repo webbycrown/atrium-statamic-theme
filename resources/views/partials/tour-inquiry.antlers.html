@@ -1,0 +1,59 @@
+<div id="tour-inquiry" class="mb-7 bg-gray-200 border border-primary-800 py-5 px-5 rounded-1xl">
+  <div class="flex flex-wrap items-center justify-between border-b border-primary-800 pb-4 mb-5">
+    <h5 class="text-lg mb-0 font-bold">Book This Event</h5>
+    {{ if price }}<span class="text-gray-800 text-md">${{ price }} per person</span>{{ /if }}
+  </div>
+  {{ if booking_error }}<p class="mb-4 text-sm text-primary-900">{{ booking_error }}</p>{{ /if }}
+  <form action="/booking/cart/add" method="post" class="mb-6 pb-6 border-b border-primary-800">
+    <input type="hidden" name="_token" value="{{ csrf_token }}">
+    <input type="hidden" name="type" value="tour">
+    <input type="hidden" name="id" value="{{ id }}">
+    <div class="mb-3 relative">
+      <select name="persons" class="select-box" required>
+        <option value="1">1 Adult</option>
+        <option value="2">2 Adults</option>
+        <option value="3">3 Adults</option>
+        <option value="4">4 Adults</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary max-w-full w-full font-semibold">Add to cart</button>
+  </form>
+  <h5 class="text-md mb-4 font-bold">Or send an inquiry</h5>
+  {{ form:tour_inquiry }}
+    <input type="hidden" name="tour" value="{{ page:title }}">
+    <input type="text" name="fax" class="hidden" tabindex="-1" autocomplete="off">
+    {{ if success }}
+    <p class="mb-4 text-sm text-primary-900 font-semibold">Inquiry sent. We will get back to you shortly.</p>
+    {{ /if }}
+    {{ if errors }}
+    <ul class="mb-4 text-sm text-primary-900">
+      {{ errors }}<li>{{ value }}</li>{{ /errors }}
+    </ul>
+    {{ /if }}
+    <div class="mb-3 relative">
+      <input type="text" name="name" value="{{ old:name }}" placeholder="Your name" class="form-control" required>
+    </div>
+    <div class="mb-3 relative">
+      <input type="email" name="email" value="{{ old:email }}" placeholder="Your email" class="form-control" required>
+    </div>
+    <div class="mb-3 relative">
+      <input type="text" name="phone" value="{{ old:phone }}" placeholder="Phone number" class="form-control">
+    </div>
+    <div class="mb-3 relative">
+      <input type="text" name="travel_date" value="{{ old:travel_date }}" placeholder="Event date" class="form-control" required>
+    </div>
+    <div class="mb-3 relative">
+      <select name="adults" class="select-box" required>
+        <option value="">Adults</option>
+        <option value="1"{{ if old:adults == '1' }} selected{{ /if }}>1 Adult</option>
+        <option value="2"{{ if old:adults == '2' }} selected{{ /if }}>2 Adults</option>
+        <option value="3"{{ if old:adults == '3' }} selected{{ /if }}>3 Adults</option>
+        <option value="4"{{ if old:adults == '4' }} selected{{ /if }}>4 Adults</option>
+      </select>
+    </div>
+    <div class="mb-3 relative">
+      <textarea name="message" class="form-control" placeholder="Message" required>{{ old:message }}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary max-w-full w-full font-semibold">Send inquiry</button>
+  {{ /form:tour_inquiry }}
+</div>

@@ -1,0 +1,14 @@
+title: 'Hero Section'
+fields:
+  -
+    handle: hero_image
+    field: { type: assets, container: assets, max_files: 1, display: 'Hero Image' }
+  -
+    handle: heading
+    field: { type: text, display: Heading }
+  -
+    handle: subheading
+    field: { type: textarea, display: Subheading }
+  -
+    handle: show_search
+    field: { type: toggle, display: 'Show Search', default: true }

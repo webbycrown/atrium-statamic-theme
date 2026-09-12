@@ -1,0 +1,16 @@
+<section class="atrium-cities-section">
+  <div class="container">
+    <div class="text-center mb-8 md:mb-14">
+      <h2>{{ heading }}</h2>
+      {{ if description }}<p class="max-w-[590px] mx-auto">{{ description }}</p>{{ /if }}
+    </div>
+    <div class="atrium-cities-grid">
+      {{ collection:destinations limit="12" }}
+        {{ partial:cards/city }}
+      {{ /collection:destinations }}
+    </div>
+    <div class="mt-12">
+      <a href="{{ button_url ?? '/cities' }}" class="btn btn-primary mx-auto">{{ button_text ?? 'Explore all' }} <i class="fa-regular fa-arrow-right ml-3"></i></a>
+    </div>
+  </div>
+</section>

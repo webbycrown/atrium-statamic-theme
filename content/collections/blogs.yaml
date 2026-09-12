@@ -1,0 +1,11 @@
+title: Blogs
+template: blogs/show
+route: '/blog/{slug}'
+revisions: false
+date: true
+sort_dir: desc
+taxonomies:
+  - blog_category
+date_behavior:
+  past: public
+  future: private

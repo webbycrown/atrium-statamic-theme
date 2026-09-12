@@ -1,0 +1,49 @@
+<div class="bg-gray-200 mb-10 md:mb-14 py-10 md:py-0">
+  <div class="container">
+    <div class="md:flex">
+      {{ partial:booking/account-nav current="detail" }}
+      <div class="pt-8 mb-0 md:py-8 md:pb-14 md:px-5 xl:px-8 w-full md:w-[calc(100%-258px)]">
+        {{ if current_order }}
+        <div class="mb-7">
+          <h2 class="text-xl md:text-25 mb-2">Booking Detail</h2>
+          <p>Order {{ current_order:title }}</p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+          <div class="shadow-box-3 rounded-xl py-8 px-5 bg-white">
+            <h3 class="text-xl mb-8 font-semibold">Order Summary</h3>
+            <p class="text-md mb-0"><strong>Order Number :</strong> {{ current_order:title }}</p>
+            {{ current_order:items }}
+            <p class="text-md mb-0"><strong>{{ type | ucfirst }} :</strong> {{ title }} × {{ persons }}</p>
+            {{ /current_order:items }}
+            {{ if current_order:travel_date }}<p class="text-md mb-0"><strong>Event Date :</strong> {{ current_order:travel_date }}</p>{{ /if }}
+            <p class="text-md mb-0"><strong>Status :</strong> {{ current_order:status }}</p>
+          </div>
+          <div class="shadow-box-3 rounded-xl py-8 px-5 bg-white">
+            <h3 class="text-xl mb-8 font-semibold">Billing Detail</h3>
+            <p class="text-md mb-0"><strong>Name :</strong> {{ current_order:first_name }} {{ current_order:last_name }}</p>
+            <p class="text-md mb-0"><strong>Email :</strong> {{ current_order:customer_email }}</p>
+            {{ if current_order:phone }}<p class="text-md mb-0"><strong>Phone :</strong> {{ current_order:phone }}</p>{{ /if }}
+            {{ if current_order:address }}<p class="text-md mb-0"><strong>Address :</strong> {{ current_order:address }}</p>{{ /if }}
+          </div>
+        </div>
+        <div class="shadow-box-3 rounded-xl py-8 px-5 bg-white mt-6">
+          <h3 class="text-xl mb-8 font-semibold">Planner info</h3>
+          <p class="m-0">{{ current_order:first_name }} {{ current_order:last_name }}{{ if current_order:phone }} · Phone {{ current_order:phone }}{{ /if }}</p>
+        </div>
+        <div class="shadow-box-3 rounded-xl py-8 px-5 bg-white mt-6">
+          <h3 class="text-xl mb-5 font-semibold border-b border-gray-100 pb-4">Pricing</h3>
+          {{ current_order:items }}
+          <div class="flex items-center justify-between text-md mb-2"><span>{{ title }} × {{ persons }}</span><span>${{ line_total }}</span></div>
+          {{ /current_order:items }}
+          <div class="flex items-center justify-between text-md mt-4 pt-4 border-t border-gray-100"><strong>Total</strong><span class="font-semibold">${{ current_order:total }}</span></div>
+        </div>
+        {{ else }}
+        <div class="mb-7">
+          <h2 class="text-xl md:text-25 mb-2">Booking Detail</h2>
+          <p>No booking selected. <a href="/booking/history" class="text-primary-900 underline">View history</a> or <a href="/events" class="text-primary-900 underline">book an event</a>.</p>
+        </div>
+        {{ /if }}
+      </div>
+    </div>
+  </div>
+</div>
